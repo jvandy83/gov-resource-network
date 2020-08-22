@@ -1,0 +1,105 @@
+.profile-root {
+  padding: 1rem;
+  background: #eee;
+}
+
+.header {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+
+.header-greeting__container {
+  margin: auto;
+}
+
+.forms-container {
+  position: relative;
+  /* border: 1px solid silver; */
+  padding: 1rem;
+  margin: 1rem 0;
+  background: #fff;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.form {
+}
+
+.header-greeting {
+}
+
+.header-pic {
+  width: 8rem;
+  border-radius: 50%;
+}
+
+.input-field {
+  padding: 0.5rem 0;
+}
+
+.input-field input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
+.no-show__form {
+  opacity: 0;
+}
+
+.show-form {
+  opacity: 1;
+  transition: 1000ms ease-in;
+}
+
+.access-form__button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+#edit-icon {
+  border: none;
+  outline: none;
+  color: #283441;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+.edit-button {
+  background: #fff;
+  color: #283441;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button {
+  padding: 0.2rem 1rem;
+  background: #283441;
+  border-radius: 3px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clear-button {
+  padding: 0.2rem 1rem;
+  background: #cd2b2c;
+  border-radius: 3px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
