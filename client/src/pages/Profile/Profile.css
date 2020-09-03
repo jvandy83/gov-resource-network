@@ -1,16 +1,39 @@
 .profile-root {
   padding: 1rem;
   background: #eee;
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-container {
+  padding: 0 1rem;
+  width: 70%;
+}
+
+.profile-intro--container {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+#intro-container {
+  margin: 0;
+  padding: 0;
+}
+
+#intro-display {
+  padding: 1rem;
 }
 
 .header {
   display: flex;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 1rem;
+  padding: 15% 2rem;
+  background: url('../../components/Image/grey-blend.jpeg') no-repeat;
+  background-size: cover;
+  /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); */
 }
 
-.header-greeting__container {
-  margin: auto;
+.access-profile__display {
+  display: flex;
+  justify-content: space-between;
 }
 
 .forms-container {
@@ -25,12 +48,20 @@
 .form {
 }
 
+.form-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .header-greeting {
 }
 
 .header-pic {
   width: 8rem;
   border-radius: 50%;
+  border: 2px solid #fff;
+  margin-top: -104px;
+  margin-left: 1rem;
 }
 
 .input-field {
@@ -45,39 +76,16 @@ textarea {
   width: 100%;
 }
 
-.no-show__form {
-  opacity: 0;
-}
-
-.show-form {
-  opacity: 1;
-  transition: 1000ms ease-in;
-}
-
-.access-form__button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
-#edit-icon {
-  border: none;
-  outline: none;
-  color: #283441;
-  background: #fff;
-  padding: 0;
-  margin: 0;
-}
-
 .edit-button {
   background: #fff;
   color: #283441;
   border: none;
   outline: none;
   cursor: pointer;
+  padding: 0;
 }
 
-button {
+.button-save {
   padding: 0.2rem 1rem;
   background: #283441;
   border-radius: 3px;
@@ -102,4 +110,16 @@ button {
 
 input {
   outline: none;
+}
+
+.aside {
+  width: 30%;
+}
+
+#education {
+  margin-bottom: 0;
+}
+
+#experience {
+  margin-top: 0;
 }

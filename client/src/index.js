@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './pages/App/App';
+import Auth0ProviderWithHistory from './pages/Auth/Auth0ProviderWithHistory';
 import { Router } from 'react-router-dom';
-import { App } from './pages';
-import { Auth0ProviderWithHistory } from './pages';
 import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory();

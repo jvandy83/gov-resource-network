@@ -1,0 +1,13 @@
+.profile-dropdown__content {
+  position: absolute;
+  background-color: #fff;
+  min-width: 12rem;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  top: 2rem;
+  z-index: 1;
+}
+
+.show-profile-dropdown--content {
+  display: block;
+}

@@ -9,10 +9,19 @@ const useForm = (callback, validate) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback(values);
     }
+    return setIsSubmitting(false);
   }, [errors, callback, isSubmitting, values]);
 
   const handleChange = (e) => {
-    e.persist();
+    e && e.persist();
+    // figure out how to toggle checkbox
+    //
+    // if (e.target.type === 'checkbox') {
+    //   setValues((prev) => ({
+    //     ...prev,
+    //     [e.target.name]: !prev[e.currentTarget.name]
+    //   }));
+    // }
     setValues((values) => ({
       ...values,
       [e.target.name]: e.target.value

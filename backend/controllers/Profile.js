@@ -1,116 +1,125 @@
 const Profile = require('../model/Profile');
 
-const User = require('../model/User');
+const isEmpty = (obj) => {
+  return Object.keys(obj).length === 0;
+};
 
-exports.postProfile = (req, res, next) => {
+// build intro object
+const buildIntroObject = (data) => {
   const {
-    user_id,
     firstName,
     lastName,
-    email,
-    gender,
-    bio,
-    jobTitle,
+    currentPosition,
+    photo,
+    headline,
     industry,
-    // start experience object
-    previousTitle,
-    company,
-    location,
-    previousFromDate,
-    previousToDate,
-    currentJob,
-    previousJobDescription,
-    // start education object
-    school,
-    degree,
-    fieldOfStudy,
-    schoolFrom,
-    schoolTo,
-    // start social
-    twitter,
-    linkedin,
-    instagram
-  } = req.body.data;
-  const experienceFields = {};
-  const educationFields = {};
-  const socialFields = {};
-  // build experience object
-  if (previousTitle) experienceFields.previousTitle = previousTitle;
-  if (company) experienceFields.company = company;
-  if (location) experienceFields.location = location;
-  if (previousFromDate) experienceFields.previousFromDate = previousFromDate;
-  if (previousToDate) experienceFields.previousToDate = previousToDate;
-  if (currentJob) experienceFields.currentJob = currentJob;
-  if (previousJobDescription)
-    experienceFields.previousJobDescription = previousJobDescription;
-  // build education object
-  if (school) educationFields.school = school;
-  if (degree) educationFields.degree = degree;
-  if (fieldOfStudy) educationFields.fieldOfStudy = fieldOfStudy;
-  if (schoolFrom) educationFields.schoolFrom = schoolFrom;
-  if (schoolTo) educationFields.schoolTo = schoolTo;
-  // build social object
-  if (twitter) socialFields.twitter = twitter;
-  if (linkedin) socialFields.linkedin = linkedin;
-  if (instagram) socialFields.instagram = instagram;
-  const profileFields = {
-    user_id,
-    firstName,
-    lastName,
-    email,
-    gender,
     bio,
-    jobTitle,
-    industry,
-    experience: experienceFields,
-    education: educationFields,
-    social: socialFields
+    city,
+    state,
+    country,
+    postalCode
+  } = data;
+
+  // build location
+  const locationObj = {};
+  if (city) locationObj.city = city;
+  if (state) locationObj.state = state;
+  if (postalCode) locationObj.postalCode = postalCode;
+  if (country) locationObj.country = country;
+  // build main
+  const intro = {};
+  if (firstName) intro.firstName = firstName;
+  if (lastName) intro.lastName = lastName;
+  if (currentPosition) intro.currentPosition = currentPosition;
+  if (photo) intro.photo = photo;
+  if (industry) intro.industry = industry;
+  if (headline) intro.headline = headline;
+  if (bio) intro.bio = bio;
+  // compose main object
+  intro.location = locationObj;
+  return {
+    intro
   };
-  Profile.findOne({ user_id: user_id })
-    .then((profile) => {
-      if (profile) {
-        console.log(profile);
-        // Profile.findOneAndUpdate(
-        //   { user_id: user_id },
-        //   { $set: profileFields },
-        //   { new: true }
-        // )
-        profile.set(profileFields);
-        // .then((result) => {
-        //   console.log('PROFILE UPDATED!!!');
-        // })
-        profile
-          .save()
-          .then((result) => {
-            console.log('PROFILE CREATED!!!');
-            return res.status(200).json({
-              success: true
-            });
-          })
-          .catch((err) => console.error(err.message));
-      } else {
-        const newProfile = new Profile(profileFields);
-        newProfile
-          .save()
-          .then((result) => {
-            console.log('PROFILE CREATED!!!');
-            return res.status(200).json({
-              success: true
-            });
-          })
-          .catch((err) => console.error(err.message));
-      }
-    })
-    .catch((err) => {
-      console.error(err.message);
-      res.status(500).send('Server Error');
-    });
+};
+
+// build contact object
+const buildContactObject = (data) => {
+  const { website, phone, address, email, birthday } = data;
+  const contact = {};
+
+  if (website) contact.website = website;
+  if (phone) contact.phone = phone;
+  if (address) contact.address = address;
+  if (email) contact.email = email;
+  if (birthday) contact.birthday = birthday;
+  return {
+    contact
+  };
+};
+
+// build background object
+
+// build social object
+const buildSocialObject = (data) => {
+  const { twitter, linkedin, instagram } = data;
+  const socialNetwork = {};
+
+  if (twitter) socialNetwork.twitter = twitter;
+  if (linkedin) socialNetwork.linkedin = linkedin;
+  if (instagram) socialNetwork.instagram = instagram;
+  return {
+    socialNetwork
+  };
+};
+
+// build accomplishments object
+
+exports.addProfile = async (req, res, next) => {
+  const body = req.body.data;
+
+  const { auth_0_user, aboutMe } = body;
+
+  const profileFields = {};
+
+  const { intro } = buildIntroObject(body);
+  const { contact } = buildContactObject(body);
+  const { socialNetwork } = buildSocialObject(body);
+
+  if (!isEmpty(intro)) profileFields.intro = intro;
+  if (!isEmpty(contact)) profileFields.contact = contact;
+  if (!isEmpty(socialNetwork)) profileFields.socialNetwork = socialNetwork;
+  if (aboutMe) profileFields.aboutMe = aboutMe;
+
+  try {
+    // Check for existing Profile document
+    const doc = await Profile.findOne({ auth_0_user: auth_0_user });
+
+    if (doc) {
+      doc.set(profileFields);
+
+      await doc.save();
+
+      res.status(201).json({
+        message: 'INTRO UPDATED!!!'
+      });
+    } else {
+      const newProfile = await new Profile({ ...profileFields, auth_0_user });
+
+      await newProfile.save();
+
+      res.status(200).json({
+        message: 'Profile Created!!!'
+      });
+    }
+  } catch (err) {
+    res.status(500).send(`Server error, ${err.message}`);
+  }
 };
 
 exports.getProfile = (req, res, next) => {
   const userId = req.params.id;
 
-  Profile.findOne({ user_id: userId })
+  Profile.findOne({ auth_0_user: userId })
     .then((profile) => {
       if (!profile) {
         res.status(200).json({
