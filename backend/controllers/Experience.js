@@ -57,47 +57,45 @@ exports.addExperience = async (req, res, next) => {
 
       await doc.save();
 
-      res.status(201).json({
+      return res.status(201).json({
         message: 'Success, updated experience object!'
       });
-    } else {
-      console.log('inside new block');
-      // create new experience object
-      const { expObj } = buildExperienceObject(body);
-
-      const experience = [];
-      experience.push(expObj);
-
-      const newExperience = await new Experience({ experience, auth_0_user });
-
-      await newExperience.save();
-
-      res.status(200).json({
-        message: 'Success, new experience object created!'
-      });
     }
-  } catch (err) {
-    res.status(500).json({
-      message: `Server error, ${err.message}`
+    // create new experience object
+    const { expObj } = buildExperienceObject(body);
+
+    const experience = [];
+    experience.push(expObj);
+
+    const newExperience = new Experience({ experience, auth_0_user });
+
+    await newExperience.save();
+
+    res.status(200).json({
+      message: 'Success, new experience object created!'
     });
+  } catch (err) {
+    err.statusCode = 500;
+    next(err);
   }
 };
 
-exports.getExperience = (req, res, next) => {
+exports.getExperience = async (req, res, next) => {
   const userId = req.params.id;
 
-  Experience.findOne({ auth_0_user: userId })
-    .then((exp) => {
-      if (!exp) {
-        res.status(200).json({
-          message: 'User not found'
-        });
-      } else {
-        res.status(200).json({
-          message: 'Success!',
-          exp
-        });
-      }
-    })
-    .catch((err) => console.error(err.message));
+  try {
+    const experience = await Experience.findOne({ auth_0_user: userId });
+    if (!experience) {
+      return res.status(200).json({
+        message: 'User not found'
+      });
+    }
+    res.status(200).json({
+      message: 'Success!',
+      card: experience
+    });
+  } catch (err) {
+    err.statusCode = 500;
+    next(err);
+  }
 };

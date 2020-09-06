@@ -99,38 +99,40 @@ exports.addProfile = async (req, res, next) => {
 
       await doc.save();
 
-      res.status(201).json({
+      return res.status(201).json({
         message: 'INTRO UPDATED!!!'
       });
-    } else {
-      const newProfile = await new Profile({ ...profileFields, auth_0_user });
-
-      await newProfile.save();
-
-      res.status(200).json({
-        message: 'Profile Created!!!'
-      });
     }
+    const newProfile = new Profile({ ...profileFields, auth_0_user });
+
+    await newProfile.save();
+
+    res.status(200).json({
+      message: 'Profile Created!!!'
+    });
   } catch (err) {
-    res.status(500).send(`Server error, ${err.message}`);
+    err.statusCode = 500;
+    next(err);
   }
 };
 
-exports.getProfile = (req, res, next) => {
+exports.getProfile = async (req, res, next) => {
   const userId = req.params.id;
 
-  Profile.findOne({ auth_0_user: userId })
-    .then((profile) => {
-      if (!profile) {
-        res.status(200).json({
-          message: 'User not found'
-        });
-      } else {
-        res.status(200).json({
-          message: 'Success!',
-          profile
-        });
-      }
-    })
-    .catch((err) => console.error(err.message));
+  try {
+    const profile = await Profile.findOne({ auth_0_user: userId });
+
+    if (!profile) {
+      return res.status(200).json({
+        message: 'User not found'
+      });
+    }
+    return res.status(200).json({
+      message: 'Success!',
+      card: profile
+    });
+  } catch (err) {
+    err.statusCode = 500;
+    next(err);
+  }
 };

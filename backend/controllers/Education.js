@@ -57,33 +57,32 @@ exports.addEducation = async (req, res, next) => {
       const education = [];
       education.push(eduObj);
 
-      const newEducation = await new Education({ education, auth_0_user });
+      const newEducation = new Education({ education, auth_0_user });
 
       await newEducation.save();
     }
   } catch (err) {
-    console.log(err);
-    res.status(500).json({
-      message: `Server error, ${err}`
-    });
+    err.statusCode = 500;
+    next(err);
   }
 };
 
-exports.getEducation = (req, res, next) => {
+exports.getEducation = async (req, res, next) => {
   const userId = req.params.id;
 
-  Education.findOne({ auth_0_user: userId })
-    .then((edu) => {
-      if (!edu) {
-        res.status(200).json({
-          message: 'User not found'
-        });
-      } else {
-        res.status(200).json({
-          message: 'Success!',
-          edu
-        });
-      }
-    })
-    .catch((err) => console.error(err.message));
+  try {
+    const education = await Education.findOne({ auth_0_user: userId });
+    if (!education) {
+      return res.status(404).json({
+        message: 'User could not be found'
+      });
+    }
+    res.status(200).json({
+      message: 'Success!',
+      card: education
+    });
+  } catch (err) {
+    err.statusCode = 500;
+    next(err);
+  }
 };

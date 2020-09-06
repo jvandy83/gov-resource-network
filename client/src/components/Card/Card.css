@@ -1,4 +1,6 @@
 .card-item__container {
+  display: flex;
+  justify-content: space-between;
   font-size: 0.9rem;
   padding: 0 0.5rem;
 }
@@ -78,14 +80,14 @@
   padding: 0;
 }
 
-.card-items__intro-list--items {
+.card-items__list--items {
   list-style: none;
   padding: 0;
 }
-.card-item__intro-list--item {
+.card-item__list--item {
   /* */
 }
 
-.card-item__intro-profile--link {
+.card-item__profile--link {
   font-weight: 400;
 }

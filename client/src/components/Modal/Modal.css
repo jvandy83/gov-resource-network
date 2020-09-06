@@ -1,40 +1,41 @@
 .modal {
   position: fixed;
-  width: 90%;
-  left: 5%;
-  top: 20vh;
+  width: 80%;
+  top: 5%;
   background: white;
   border-radius: 5px;
   z-index: 200;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
-.modal__header {
-  border-bottom: 2px solid #3b0062;
+.modal-header {
+  border-bottom: 2px solid #283441;
 }
 
-.modal__header h1 {
+.modal-header h1 {
   font-size: 1.5rem;
-  color: #3b0062;
+  color: #283441;
   margin: 1rem;
 }
 
-.modal__content {
-  padding: 1rem;
+.modal-content {
+  padding: 0.5rem 1rem;
 }
 
-.modal__actions {
-  padding: 1rem;
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
   text-align: right;
 }
 
-.modal__actions button {
+.modal-actions button {
   margin: 0 0.5rem;
 }
 
 @media (min-width: 768px) {
   .modal {
-    width: 40rem;
-    left: calc((100% - 40rem) / 2);
+    width: 30rem;
+    left: calc((100% - 30rem) / 2);
   }
 }

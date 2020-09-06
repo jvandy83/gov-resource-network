@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Jobs.css';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
 import useStateNames from '../../util/useStateNames';
+
+import axios from 'axios';
 
 const Jobs = () => {
   const INITIAL_DROPDOWN_STATE = {
@@ -28,11 +30,15 @@ const Jobs = () => {
   };
   const [dropdown, setDropdown] = useState(INITIAL_DROPDOWN_STATE);
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { stateValues } = useStateNames();
 
   const [values, setValues] = useState({});
 
-  const { stateValues } = useStateNames();
+  const [contractData, setContractData] = useState({});
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [isRemovingInputValue, setIsRemovingInputValue] = useState(false);
 
   const toggleDropdown = (val) => {
     setDropdown((prev) => ({
@@ -42,11 +48,11 @@ const Jobs = () => {
   };
 
   const checkValue = (str, max) => {
-    if (str.charAt(0) !== '0' || str == '00') {
+    if (str.charAt(0) !== '0' || str === '00') {
       var num = parseInt(str);
       if (isNaN(num) || num <= 0 || num > max) num = 1;
       str =
-        num > parseInt(max.toString().charAt(0)) && num.toString().length == 1
+        num > parseInt(max.toString().charAt(0)) && num.toString().length === 1
           ? '0' + num
           : num.toString();
     }
@@ -66,7 +72,7 @@ const Jobs = () => {
       if (values[0]) values[0] = checkValue(values[0], 12);
       if (values[1]) values[1] = checkValue(values[1], 31);
       var output = values.map(function (v, i) {
-        return v.length == 2 && i < 2 ? v + ' / ' : v;
+        return v.length === 2 && i < 2 ? v + '/' : v;
       });
       value = output.join('').substr(0, 14);
     } else if (e.target.id === 'state') {
@@ -80,38 +86,6 @@ const Jobs = () => {
       [e.target.name]: value
     }));
     setIsSubmitting(false);
-  };
-
-  const handleBlur = (e) => {
-    e && e.persist();
-    const { value } = e.target;
-    var values = value.split('/').map(function (v, i) {
-      return v.replace(/\D/g, '');
-    });
-    var output = '';
-
-    if (values.length == 3) {
-      var year =
-        values[2].length !== 4
-          ? parseInt(values[2]) + 2000
-          : parseInt(values[2]);
-      var month = parseInt(values[0]) - 1;
-      var day = parseInt(values[1]);
-      var d = new Date(year, month, day);
-      if (!isNaN(d)) {
-        var dates = [d.getMonth() + 1, d.getDate(), d.getFullYear()];
-        output = dates
-          .map(function (v) {
-            v = v.toString();
-            return v.length == 1 ? '0' + v : v;
-          })
-          .join(' / ');
-      }
-    }
-    setValues((prev) => ({
-      ...prev,
-      [e.target.name]: output
-    }));
   };
 
   const createStateOptions = () => {
@@ -129,7 +103,6 @@ const Jobs = () => {
   };
 
   const handleClickOutside = (e, dropdown) => {
-    const val = e.target;
     if (
       !e.target.classList.contains('jobs-input__form') &&
       !e.target.classList.contains('custom-select__option') &&
@@ -137,11 +110,9 @@ const Jobs = () => {
       !e.target.classList.contains('expand-icon__open') &&
       !e.target.classList.contains('dropdown-input')
     ) {
-      setTimeout(() => {
-        for (let value in dropdown) {
-          setDropdown(!dropdown[value]);
-        }
-      }, 300);
+      for (let value in dropdown) {
+        setDropdown(!dropdown[value]);
+      }
     }
   };
 
@@ -151,13 +122,9 @@ const Jobs = () => {
       ...prev,
       [e.target.id]: e.target.getAttribute('data-name')
     }));
-    setIsSubmitting(true);
-    setTimeout(() => {
-      toggleDropdown('state');
-    }, 500);
   };
 
-  const buildSearchUrl = () => {
+  const buildSearchUrl = (isRemoving) => {
     const colors = [
       '#a9d0ff',
       '#f7e29f',
@@ -165,50 +132,98 @@ const Jobs = () => {
       '#bff9e4',
       '#f9a99e',
       '#ffe6a6',
-      '#a4bdce'
+      '#a4bdce',
+      '#ffab90',
+      '#d3dae2',
+      '#e1f6cf',
+      '#ffe4cd',
+      '#f6d0d1',
+      '#d8717a',
+      '#b4b9e2'
     ];
-    const urlKeys = Object.entries(values);
-    if (urlKeys.length) {
-      return urlKeys.map((key, val) => {
-        console.log('key: ', key, 'val: ', val);
-        const randColor = colors[Math.floor(Math.random() * colors.length)];
-        return (
-          <span
-            className="query-item"
-            style={{ background: randColor }}
-            key={key[1]}
-          >
-            {`${key[0]}=${key[1]}`}{' '}
-          </span>
-        );
-      });
+
+    if (isRemoving) {
+      return Object.entries(values).map((item, idx) => (
+        <span key={item[1]} style={{ background: colors[idx] }}>
+          {item[0]}={item[1]}
+        </span>
+      ));
     }
+
+    let updatedEntries = {};
+
+    for (let val in values) {
+      if (!updatedEntries[val]) {
+        updatedEntries[val] = values[val];
+      }
+    }
+    const newArray = Object.entries(updatedEntries);
+    return newArray.map((item, idx) => (
+      <span key={item[1]} style={{ background: colors[idx] }}>
+        {item[0]}={item[1]}
+      </span>
+    ));
   };
 
-  const handleSubmit = (e) => {
-    e && e.preventDefault();
-    setIsSubmitting(true);
+  const removeInputValue = (val) => {
+    delete values[val];
+    setIsRemovingInputValue(true);
+  };
+
+  useEffect(() => {
+    Object.values(values).length && setIsSubmitting(true);
+    return () => {
+      setIsRemovingInputValue(false);
+    };
+  }, [isSubmitting, values]);
+
+  const fetchContracts = async () => {
+    const api_key = process.env.REACT_APP_BETA_SAM_GOV_API_KEY__DEV;
+    // group entries to easily
+    // join them for query string
+    const searchArray = Object.entries(values);
+    // get array length to know where
+    // to truncate '&' in query string
+    const len = searchArray.length;
+    // create string to concat all url values
+    let searchString = '';
+
+    searchArray.forEach((entry, idx, arr) => {
+      if (idx < len - 1) {
+        searchString += entry.join('=') + '&';
+      } else {
+        searchString += entry.join('=');
+      }
+    });
+
+    const baseProdLikeUrl =
+      'https://api-alpha.sam.gov/prodlike/opportunities/v1';
+
+    // const baseProdUrl = 'https://api.sam.gov/prod/opportunities/v1/';
+
+    try {
+      const res = await axios.get(
+        `${baseProdLikeUrl}/search?limit=10&api_key=${api_key}&${searchString}`
+      );
+      if (res.status !== 200 && res.status !== 201) {
+        console.log('There was an error');
+      }
+      setContractData(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div onClick={(e) => handleClickOutside(e, dropdown)} className="jobs-root">
       <h2 className="jobs-header__title">Search for your contracts</h2>
       <div>
-        {isSubmitting ? (
-          <div>
-            <div className="jobs-search__entries">
-              <>{buildSearchUrl()}</>
-            </div>
-            <button className="search-button">Search</button>
-          </div>
-        ) : (
-          <div>
-            <div className="jobs-search__entries jobs-search__input-placeholder">
-              Your selected values will be placed here...
-            </div>
-            <button className="search-button">Search</button>
-          </div>
-        )}
+        <div className="jobs-search__entries">
+          {isSubmitting && buildSearchUrl(isRemovingInputValue)}
+        </div>
+        <button onClick={() => fetchContracts()} className="search-button">
+          Search
+        </button>
       </div>
 
       <div className="jobs-main__section">
@@ -233,12 +248,17 @@ const Jobs = () => {
                 type="text"
                 placeholder="MM / dd / yyyy"
               />
-              <button
-                onClick={handleSubmit}
-                className="jobs-input__select-button"
-              >
-                Select
-              </button>
+              <div className="jobs-input__action-buttons">
+                <button className="jobs-input__action-button action-confirm">
+                  Confirm
+                </button>
+                <button
+                  onClick={() => removeInputValue('postedFrom')}
+                  className="jobs-input__action-button action-remove"
+                >
+                  Remove
+                </button>
+              </div>
             </div>
           ) : (
             <div className="jobs-input">
@@ -271,12 +291,17 @@ const Jobs = () => {
                 type="text"
                 placeholder="MM / dd / yyyy"
               />
-              <button
-                onClick={handleSubmit}
-                className="jobs-input__select-button"
-              >
-                Select
-              </button>
+              <div className="jobs-input__action-buttons">
+                <button className="jobs-input__action-button action-confirm">
+                  Confirm
+                </button>
+                <button
+                  onClick={() => removeInputValue('postedTo')}
+                  className="jobs-input__action-button action-remove"
+                >
+                  Remove
+                </button>
+              </div>
             </div>
           ) : (
             <div className="jobs-input">
@@ -290,18 +315,31 @@ const Jobs = () => {
             </div>
           )}
           {dropdown.state ? (
-            <div className="jobs-input__dropdown">
-              <div className="jobs-input__dropdown-header">
-                <p className="jobs-input__title">State</p>
+            <>
+              <div className="jobs-input__dropdown">
+                <div className="jobs-input__dropdown-header">
+                  <p className="jobs-input__title">State</p>
+                  <button
+                    onClick={() => toggleDropdown('state')}
+                    className="jobs-input__dropdown-button"
+                  >
+                    <ExpandLessIcon className="expand-icon expand-icon__close" />
+                  </button>
+                </div>
+                <ul className="select-options">{createStateOptions()}</ul>
+              </div>
+              <div className="jobs-input__action-buttons">
+                <button className="jobs-input__action-button action-confirm">
+                  Confirm
+                </button>
                 <button
-                  onClick={() => toggleDropdown('state')}
-                  className="jobs-input__dropdown-button"
+                  onClick={() => removeInputValue('state')}
+                  className="jobs-input__action-button action-remove"
                 >
-                  <ExpandLessIcon className="expand-icon expand-icon__close" />
+                  Remove
                 </button>
               </div>
-              <ul className="select-options">{createStateOptions()}</ul>
-            </div>
+            </>
           ) : (
             <div className="jobs-input">
               <p className="jobs-input__title">State</p>
@@ -333,12 +371,17 @@ const Jobs = () => {
                 className="dropdown-input"
                 type="text"
               />
-              <button
-                onClick={handleSubmit}
-                className="jobs-input__select-button"
-              >
-                Select
-              </button>
+              <div className="jobs-input__action-buttons">
+                <button className="jobs-input__action-button action-confirm">
+                  Confirm
+                </button>
+                <button
+                  onClick={() => removeInputValue('zip')}
+                  className="jobs-input__action-button action-remove"
+                >
+                  Remove
+                </button>
+              </div>
             </div>
           ) : (
             <div className="jobs-input">
@@ -495,6 +538,7 @@ const Jobs = () => {
             <li className="bids-display__isopen bid">Open/Close</li>
             <li className="bids-display__description bid">Description</li>
           </ul>
+          {/* list of opportunities here */}
         </div>
       </div>
     </div>

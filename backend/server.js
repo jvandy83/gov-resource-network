@@ -49,9 +49,12 @@ if (['production', 'ci'].includes(process.env.NODE_ENV)) {
 
 app.use('/api', apiRoutes);
 
-app.get('/authorized', function (req, res) {
-  console.log(req);
-  res.send('Secured Resource');
+app.use((err, req, res, next) => {
+  console.log(err);
+  const status = err.statusCode || 500;
+  const message = err.message;
+  const { data } = err;
+  res.status(status).json({ message: message, data });
 });
 
 mongoose

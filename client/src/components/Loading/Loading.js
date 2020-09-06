@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Loading = () => {
-  return (
-    <div>
-      <h1>Loading...</h1>
-    </div>
-  );
-};
+import './Loading.css';
 
-export default Loading;
+const loader = (props) => (
+  <div className="loader">
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+);
+
+export default loader;

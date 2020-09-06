@@ -1,33 +1,31 @@
-import React, { useContext } from 'react';
-import ReactDOM from 'react-dom';
-import { ModalContext } from './ModalContext';
+import React from 'react';
 
-import EditIntroForm from '../Form/IntroFrom/EditIntroForm';
+import ModalButton from '../Button/Modal/ModalButton';
 
 import './Modal.css';
 
-const Modal = ({ children }) => {
-  const { modal, modalContent, handleModal } = useContext(ModalContext);
-
-  if (modal) {
-    return ReactDOM.createPortal(
-      <div className="modal">
-        {/* <header className="modal-header">
-          <h3>Modal</h3>
-        </header> */}
-        <div className="modal-content">
-          <EditIntroForm />
-        </div>
-        <div className="modal-actions">
-          {/* <button className="danger" onClick={() => handleModal}>
-            Cancel
-          </button> */}
-          <button onClick={() => handleModal()}>&times;</button>
-        </div>
-      </div>,
-      document.querySelector('#modal-root')
-    );
-  } else return null;
+const modal = (props) => {
+  return (
+    <div className="modal">
+      <header className="modal-header">
+        <h1>{props.title}</h1>
+      </header>
+      <div className="modal-content">{props.children}</div>
+      <div className="modal-actions">
+        <ModalButton design="danger" mode="flat" onClick={props.onCancelModal}>
+          Cancel
+        </ModalButton>
+        <ModalButton
+          // disabled={props.acceptEnabled}
+          mode="raised"
+          onClick={props.onAcceptModal}
+          loading={props.isLoading}
+        >
+          Save
+        </ModalButton>
+      </div>
+    </div>
+  );
 };
 
-export default Modal;
+export default modal;

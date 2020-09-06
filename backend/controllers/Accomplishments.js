@@ -82,8 +82,29 @@ exports.addAccomplishments = async (req, res, next) => {
       });
     }
   } catch (err) {
-    res.status(500).json({
-      message: `Server error, ${err}`
+    err.statusCode = 500;
+    next(err);
+  }
+};
+
+exports.getAccomplishments = async (req, res, next) => {
+  const userId = req.params.id;
+
+  try {
+    const accomplishments = await Accomplishments.findOne({
+      auth_0_user: userId
     });
+    if (!accomplishments) {
+      return res.status(404).json({
+        message: 'User could not be found'
+      });
+    }
+    res.status(200).json({
+      message: 'Success!',
+      card: accomplishments
+    });
+  } catch (err) {
+    err.statusCode = 500;
+    next(err);
   }
 };

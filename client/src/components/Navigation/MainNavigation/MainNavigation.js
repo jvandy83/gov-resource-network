@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import LoginButton from '../../Button/Login/LoginButton';
 import LogoutButton from '../../Button/Login/LogoutButton';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ const Nav = ({ user }) => {
         <ul className="nav-links">
           <li className="nav-item nav-logo">
             <Link className="logo nav-item__link" to="/">
-              Gov Resource
+              GovLink
             </Link>
           </li>
           <li className="nav-item nav-item__messaging">
@@ -64,10 +64,7 @@ const Nav = ({ user }) => {
                   />
                   <div className="nav-item__title--container ">
                     <span className="nav-item__title">Me</span>
-                    <ArrowDropDownIcon
-                      // style={{ color: 'white' }}
-                      className="nav-item__dropdown-trigger--icon"
-                    />
+                    <ArrowDropDownIcon className="nav-item__dropdown-trigger--icon" />
                   </div>
                 </Link>
               </div>
@@ -81,7 +78,7 @@ const Nav = ({ user }) => {
         <ul className="nav-links">
           <li className="nav-item nav-logo">
             <Link className="logo nav-item__link" to="/">
-              Gov Resource
+              GovLink
             </Link>
           </li>
           <LoginButton />
