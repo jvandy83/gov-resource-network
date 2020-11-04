@@ -17,8 +17,8 @@ router.get('/experience/:id', getExperience);
 router.get('/accomplishments/:id', getAccomplishments);
 
 router.put('/profile', addProfile);
-router.put('/experience', addExperience);
 router.put('/education', addEducation);
+router.put('/experience', addExperience);
 router.put('/accomplishments', addAccomplishments);
 
 module.exports = router;

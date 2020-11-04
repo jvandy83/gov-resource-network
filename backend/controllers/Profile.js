@@ -75,7 +75,7 @@ const buildSocialObject = (data) => {
 // build accomplishments object
 
 exports.addProfile = async (req, res, next) => {
-  const body = req.body.data;
+  const body = req.body;
 
   const { auth_0_user, aboutMe } = body;
 
@@ -99,6 +99,8 @@ exports.addProfile = async (req, res, next) => {
 
       await doc.save();
 
+      console.log('intro updated', doc);
+
       return res.status(201).json({
         message: 'INTRO UPDATED!!!'
       });
@@ -106,6 +108,8 @@ exports.addProfile = async (req, res, next) => {
     const newProfile = new Profile({ ...profileFields, auth_0_user });
 
     await newProfile.save();
+
+    console.log('new intro created');
 
     res.status(200).json({
       message: 'Profile Created!!!'

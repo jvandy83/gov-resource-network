@@ -4,6 +4,8 @@ import Modal from '../Modal/Modal';
 
 import Backdrop from '../Backdrop/Backdrop';
 
+import './Form.css';
+
 import { useForm, validate } from '../../hooks';
 
 import axios from 'axios';
@@ -42,15 +44,15 @@ const EducationForm = (props) => {
 
   return (
     <>
-      <Backdrop onClick={props.onCancelModal} />
+      <Backdrop onClick={() => props.onCancelModal(props.mode)} />
       <Modal
         title="Edit Education"
         // acceptEnabled={state.formIsValid}
-        onCancelModal={props.onCancelModal}
+        onCancelModal={() => props.onCancelModal(props.mode)}
         onAcceptModal={handleSubmit}
         // isLoading={props.loading}
       >
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="education">
             <div className="input-field">
               <label htmlFor="school">School</label>
@@ -101,12 +103,12 @@ const EducationForm = (props) => {
               />
             </div>
           </div>
-          <div className="submit-buttons">
+          {/* <div className="submit-buttons">
             <button className="button-save">Save</button>
             <button className="clear-button" onClick={handleClearInput}>
               Clear
             </button>
-          </div>
+          </div> */}
         </form>
       </Modal>
     </>

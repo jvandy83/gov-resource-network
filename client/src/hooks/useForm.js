@@ -31,7 +31,7 @@ const useForm = (callback, validate) => {
   const handleSubmit = (e) => {
     !!e && e.preventDefault();
     setIsSubmitting(true);
-    setErrors(validate(values));
+    // setErrors(validate(values));
   };
 
   const clearInput = () => {

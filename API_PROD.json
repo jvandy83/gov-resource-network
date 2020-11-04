@@ -1,0 +1,559 @@
+{
+  "totalRecords": 24614,
+  "limit": 10,
+  "offset": 0,
+  "opportunitiesData": [
+    {
+      "noticeId": "ffbecab233bc413da06a556d5412c555",
+      "title": "Black Hawk Exchange and Sales Team (BEST) Program H-60 Sales Announcement- Aircraft, UH60A Black Hawk",
+      "solicitationNumber": "",
+      "department": "DEPT OF DEFENSE",
+      "subTier": "DEPT OF THE ARMY",
+      "office": "W6QK ACC-RSA",
+      "postedDate": "2020-09-08",
+      "type": "Special Notice",
+      "baseType": "Special Notice",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-09-14",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-09-14T12:00:00-04:00",
+      "naicsCode": "336411",
+      "classificationCode": "1520",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": null,
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=ffbecab233bc413da06a556d5412c555",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "35898-0000",
+        "city": "REDSTONE ARSENAL",
+        "countryCode": "USA",
+        "state": "AL"
+      },
+      "placeOfPerformance": null,
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/ffbecab233bc413da06a556d5412c555/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=ffbecab233bc413da06a556d5412c555&limit=1"
+        }
+      ],
+      "resourceLinks": [
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/d8856efc453d450899332bcee4c10b49/download?api_key=null&token="
+      ]
+    },
+    {
+      "noticeId": "ffb03c939dc94290bd2733ef8fcdf71d",
+      "title": "66--NOISE DOSIMETER KIT",
+      "solicitationNumber": "W912JM20Q0277",
+      "department": "DEPT OF DEFENSE",
+      "subTier": "DEPT OF THE ARMY",
+      "office": "W7M3 USPFO ACTIVITY GA ARNG",
+      "postedDate": "2020-09-08",
+      "type": "Combined Synopsis/Solicitation",
+      "baseType": "Combined Synopsis/Solicitation",
+      "archiveType": "autocustom",
+      "archiveDate": "2021-03-08",
+      "typeOfSetAsideDescription": "Women-Owned Small Business (WOSB) Program Set-Aside (FAR 19.15)",
+      "typeOfSetAside": "WOSB",
+      "responseDeadLine": "2020-09-09",
+      "naicsCode": "334513",
+      "classificationCode": "66",
+      "active": "Yes",
+      "award": { "awardee": { "location": {} } },
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "marketplacesupport@unisonglobal.com",
+          "phone": null,
+          "title": null,
+          "fullName": "Name: Marketplace Support, Title: Marketplace Support, Phone: 1.877.933.3243, Fax: 703.422.7822, Email: MarketplaceSupport@unisonglobal.com; "
+        }
+      ],
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=ffb03c939dc94290bd2733ef8fcdf71d",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "30069-0001",
+        "city": "MARIETTA",
+        "countryCode": "USA",
+        "state": "GA"
+      },
+      "placeOfPerformance": {
+        "streetAddress": "College Park, GA",
+        "zip": "30349",
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/ffb03c939dc94290bd2733ef8fcdf71d/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=ffb03c939dc94290bd2733ef8fcdf71d&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "ff918b0648ba4a4586775db2f94671d7",
+      "title": "Little Goose Dam Powerhouse and Elevator Roof Replacement",
+      "solicitationNumber": "W912EF20RSS47",
+      "department": "DEPT OF DEFENSE",
+      "subTier": "US ARMY CORPS OF ENGINEERS - CIVIL PROGRAM FINANCING ONLY",
+      "office": "Walla Walla",
+      "postedDate": "2020-09-08",
+      "type": "Sources Sought",
+      "baseType": "Sources Sought",
+      "archiveType": "auto15",
+      "archiveDate": "2020-10-15",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-09-30T15:00:00-07:00",
+      "naicsCode": "238160",
+      "classificationCode": "Z2JZ",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": "",
+          "type": "primary",
+          "email": "david.c.boone@usace.army.mil",
+          "phone": "5095277227",
+          "title": null,
+          "fullName": "David Boone"
+        }
+      ],
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=ff918b0648ba4a4586775db2f94671d7",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "99362-1876",
+        "city": "Walla Walla",
+        "state": "WA"
+      },
+      "placeOfPerformance": {
+        "city": { "code": "67490", "name": "Starbuck" },
+        "state": { "code": "WA", "name": "Washington" },
+        "zip": "99359",
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/ff918b0648ba4a4586775db2f94671d7/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=ff918b0648ba4a4586775db2f94671d7&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "ff456c4668bc45748f3fb8d3b890a9a5",
+      "title": "Framed original photographic artwork for Landstuhl Regional Medical Center (LRMC) located in Landstuhl, Germany",
+      "solicitationNumber": "W912DY-20-T-0004",
+      "department": "DEPT OF DEFENSE",
+      "subTier": "DEPT OF THE ARMY",
+      "office": "W2V6 USA ENG SPT CTR HUNTSVIL",
+      "postedDate": "2020-09-08",
+      "type": "Combined Synopsis/Solicitation",
+      "baseType": "Combined Synopsis/Solicitation",
+      "archiveType": "auto15",
+      "archiveDate": "2020-09-29",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-09-14T14:00:00-05:00",
+      "naicsCode": "541922",
+      "classificationCode": "7195",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": "",
+          "type": "primary",
+          "email": "Brandalyn.L.fox@usace.army.mil",
+          "phone": "",
+          "title": null,
+          "fullName": "Brandalyn Fox"
+        }
+      ],
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=ff456c4668bc45748f3fb8d3b890a9a5",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "35806-0000",
+        "city": "HUNTSVILLE",
+        "countryCode": "USA",
+        "state": "AL"
+      },
+      "placeOfPerformance": { "country": { "code": "DEU", "name": "GERMANY" } },
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/ff456c4668bc45748f3fb8d3b890a9a5/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=ff456c4668bc45748f3fb8d3b890a9a5&limit=1"
+        }
+      ],
+      "resourceLinks": [
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/29b320f4d9bb4b12bf28e44fadc2c8f8/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 308144796fad40f7a361e58a289a64d1/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 4b7e2b8ceaa24062ba99ac3a78f5698d/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 6aaf00aeb1f24d5785604f4f8aae8fbe/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 88b55a15b0f24024ae81722b6b08d2bb/download?api_key=null&token="
+      ]
+    },
+    {
+      "noticeId": "ff3a7b81a3564f98a78091a978a56ff1",
+      "title": "Unexploded Ordnance (UXO) Clearance at Fort McCoy, WI",
+      "solicitationNumber": "W911SA-21-Q-3008",
+      "department": "DEPT OF DEFENSE",
+      "subTier": "DEPT OF THE ARMY",
+      "office": "W6QM MICC FT MCCOY (RC)",
+      "postedDate": "2020-09-08",
+      "type": "Solicitation",
+      "baseType": "Solicitation",
+      "archiveType": "auto15",
+      "archiveDate": "2020-10-06",
+      "typeOfSetAsideDescription": "Service-Disabled Veteran-Owned Small Business (SDVOSB) Set-Aside (FAR 19.14)",
+      "typeOfSetAside": "SDVOSBC",
+      "responseDeadLine": "2020-09-21T10:00:00-05:00",
+      "naicsCode": "562910",
+      "classificationCode": "F108",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": "",
+          "type": "primary",
+          "email": "jana.l.knapp.civ@mail.mil",
+          "phone": "6083881253",
+          "title": null,
+          "fullName": "Jana L. Knapp"
+        }
+      ],
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=ff3a7b81a3564f98a78091a978a56ff1",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "54656-5142",
+        "city": "FORT MCCOY",
+        "countryCode": "USA",
+        "state": "WI"
+      },
+      "placeOfPerformance": {
+        "city": { "code": "26700", "name": "Fort McCoy" },
+        "state": { "code": "WI", "name": "Wisconsin" },
+        "zip": "54656",
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/ff3a7b81a3564f98a78091a978a56ff1/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=ff3a7b81a3564f98a78091a978a56ff1&limit=1"
+        }
+      ],
+      "resourceLinks": [
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/0c23332d735f4888b42c385b7e2f6cce/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 15aaf59d45b040d5aafcc996f689d779/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 1dfa317ab7cf402fb6bd1170832a3652/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 1f669936e8c74bef963cebcfb5d7c8b1/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 29efc3dd78054e02a4bb1ee40a6672b8/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 3d911b9a32b341e0929d50905e595750/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 437279267dbd4a7ebff555b160fe325a/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 697476a9a61543129fee66d02f7b7ed5/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 6a9495fdf6914c59beccc4146a7b3d84/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ 91d9432c49214ceea58fdee081a52489/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ a11379373937401c805cfb647842be60/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ bdc5994ff5c5412c9b6f85e2758d35ea/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ bebdbc2eea644df990d7dc2533fd90b2/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ c34aa7a947aa42c6b891767e5b1bebd0/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ c7053dbcdc6841caa1812d9c6e35a0a6/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ df37ca9b71c34be3a48510b2782b4afe/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ efd79826a5704f498e118b1938f48108/download?api_key=null&token="
+      ]
+    },
+    {
+      "noticeId": "ff33d498baec4655b8d491681a30973c",
+      "title": "Intent to Sole Source TopCon Medical Systems, Inc",
+      "solicitationNumber": "",
+      "department": "HEALTH AND HUMAN SERVICES, DEPARTMENT OF",
+      "subTier": "INDIAN HEALTH SERVICE",
+      "office": "NAVAJO AREA INDIAN HEALTH SVC",
+      "postedDate": "2020-09-08",
+      "type": "Special Notice",
+      "baseType": "Special Notice",
+      "archiveType": "auto15",
+      "archiveDate": "2020-09-25",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-09-10T16:00:00-04:00",
+      "naicsCode": "333314",
+      "classificationCode": "6540",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": "",
+          "type": "primary",
+          "email": "Roxanne.Franklin@ihs.gov",
+          "phone": "9286974023",
+          "title": null,
+          "fullName": "Roxanne Franklin"
+        }
+      ],
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=ff33d498baec4655b8d491681a30973c",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "86515",
+        "city": "WINDOW ROCK",
+        "countryCode": "USA",
+        "state": "AZ"
+      },
+      "placeOfPerformance": {
+        "city": { "code": "28460", "name": "Gallup" },
+        "state": { "code": "NM", "name": "New Mexico" },
+        "zip": "87301",
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/ff33d498baec4655b8d491681a30973c/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=ff33d498baec4655b8d491681a30973c&limit=1"
+        }
+      ],
+      "resourceLinks": [
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/6ccf761920ea4c8ba874cb8777a5ee0b/download?api_key=null&token=",
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/ efa75117bcd74263873e90024e07549b/download?api_key=null&token="
+      ]
+    },
+    {
+      "noticeId": "ff2a80a64cbb4a06babbbd2ebc9824d3",
+      "title": "R--Appraisal Services - 9 appraisals reports SLBE",
+      "solicitationNumber": "140D7020Q0028",
+      "department": "INTERIOR, DEPARTMENT OF THE",
+      "subTier": "DEPARTMENTAL OFFICES",
+      "office": "IBC ACQ SERVICE DIVISION (00070)",
+      "postedDate": "2020-09-08",
+      "type": "Award Notice",
+      "baseType": "Award Notice",
+      "archiveType": "auto15",
+      "archiveDate": "2020-09-23",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": null,
+      "naicsCode": "531320",
+      "classificationCode": "R411",
+      "active": "Yes",
+      "award": {
+        "date": "2020-09-08",
+        "number": "140D7020P0067",
+        "amount": "49500",
+        "awardee": {
+          "name": "PIAZZA, ANTHONY M",
+          "location": {},
+          "duns": "607888534",
+          "cageCode": "3PJK9"
+        }
+      },
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "GENE_PARRILL@IBC.DOI.GOV",
+          "phone": null,
+          "title": null,
+          "fullName": "Parrill, Gene"
+        }
+      ],
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=ff2a80a64cbb4a06babbbd2ebc9824d3",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "80227",
+        "city": "DENVER",
+        "countryCode": "USA",
+        "state": "CO"
+      },
+      "placeOfPerformance": {},
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/ff2a80a64cbb4a06babbbd2ebc9824d3/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=ff2a80a64cbb4a06babbbd2ebc9824d3&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "ff24cd52c5714d1687fed4667364544a",
+      "title": "SPE4A720R0908",
+      "solicitationNumber": "Platebackingbrake",
+      "department": "DEPT OF DEFENSE",
+      "subTier": "DEFENSE LOGISTICS AGENCY (DLA)",
+      "office": "DLA AVIATION",
+      "postedDate": "2020-09-08",
+      "type": "Presolicitation",
+      "baseType": "Presolicitation",
+      "archiveType": "auto15",
+      "archiveDate": "2020-10-07",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-09-22T17:00:00-04:00",
+      "naicsCode": "336413",
+      "classificationCode": "1630",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": "",
+          "type": "primary",
+          "email": "Antoine.Dozier@dla.mil",
+          "phone": "8042791095",
+          "title": null,
+          "fullName": "Antoine Dozier"
+        }
+      ],
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=ff24cd52c5714d1687fed4667364544a",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "23297",
+        "city": "RICHMOND",
+        "countryCode": "USA",
+        "state": "VA"
+      },
+      "placeOfPerformance": {
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/ff24cd52c5714d1687fed4667364544a/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=ff24cd52c5714d1687fed4667364544a&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "fe94ae91f40c4518bc637c99a5faa76b",
+      "title": "Request for Information (RFI) U.S. Department of State Bureau of Information Resource Management (IRM) Logistics-Supply Chain Management (SCM) Services",
+      "solicitationNumber": "19AQMM20N0076",
+      "department": "STATE, DEPARTMENT OF",
+      "subTier": "STATE, DEPARTMENT OF",
+      "office": "ACQUISITIONS - AQM MOMENTUM",
+      "postedDate": "2020-09-08",
+      "type": "Sources Sought",
+      "baseType": "Sources Sought",
+      "archiveType": "auto15",
+      "archiveDate": "2020-10-07",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-09-22T10:00:00-04:00",
+      "naicsCode": "493190",
+      "classificationCode": null,
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": "",
+          "type": "primary",
+          "email": "weakley-lugokf@state.gov",
+          "phone": "",
+          "title": null,
+          "fullName": "Katherine Lugo"
+        },
+        {
+          "fax": "",
+          "type": "secondary",
+          "email": "WhiteKG@state.gov",
+          "phone": "7038755854",
+          "title": null,
+          "fullName": "Katherine White"
+        }
+      ],
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=fe94ae91f40c4518bc637c99a5faa76b",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "20520",
+        "city": "WASHINGTON",
+        "countryCode": "USA",
+        "state": "DC"
+      },
+      "placeOfPerformance": {
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/fe94ae91f40c4518bc637c99a5faa76b/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=fe94ae91f40c4518bc637c99a5faa76b&limit=1"
+        }
+      ],
+      "resourceLinks": [
+        "https://beta.sam.gov/api/prod/opps/v3/opportunities/resources/files/92a52bbf0e7e4f6999fe7d692fb6cce6/download?api_key=null&token="
+      ]
+    },
+    {
+      "noticeId": "fe6da1ff4af5424387aa0f4c1a9db348",
+      "title": "99--RMIB_OST_QU21_1234567",
+      "solicitationNumber": "RMIB_1234567",
+      "department": "DEPT OF DEFENSE",
+      "subTier": "DEPT OF THE ARMY",
+      "office": "W6QM MICC-FT DRUM",
+      "postedDate": "2020-09-08",
+      "type": "Combined Synopsis/Solicitation",
+      "baseType": "Combined Synopsis/Solicitation",
+      "archiveType": "autocustom",
+      "archiveDate": "2021-03-13",
+      "typeOfSetAsideDescription": "Total Small Business Set-Aside (FAR 19.5)",
+      "typeOfSetAside": "SBA",
+      "responseDeadLine": "2020-09-14",
+      "naicsCode": "721199",
+      "classificationCode": "99",
+      "active": "Yes",
+      "award": { "awardee": { "location": {} } },
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "marketplacesupport@unisonglobal.com",
+          "phone": null,
+          "title": null,
+          "fullName": "Name: Marketplace Support, Title: Marketplace Support, Phone: 1.877.933.3243, Fax: 703.422.7822, Email: MarketplaceSupport@unisonglobal.com; "
+        }
+      ],
+      "description": "https://api.sam.gov/prod/opportunities/v1/noticedesc?noticeid=fe6da1ff4af5424387aa0f4c1a9db348",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "13602-5220",
+        "city": "FORT DRUM",
+        "countryCode": "USA",
+        "state": "NY"
+      },
+      "placeOfPerformance": {
+        "streetAddress": "Fort Benning , GA",
+        "zip": "31905",
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://beta.sam.gov/opp/fe6da1ff4af5424387aa0f4c1a9db348/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api.sam.gov/prod/opportunities/v1/search?noticeid=fe6da1ff4af5424387aa0f4c1a9db348&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://api.sam.gov/prod/opportunities/v1/search?limit=10&postedFrom=08/08/2020&postedTo=10/22/2020"
+    }
+  ]
+}

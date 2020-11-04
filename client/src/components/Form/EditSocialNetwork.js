@@ -4,6 +4,8 @@ import Modal from '../Modal/Modal';
 
 import Backdrop from '../Backdrop/Backdrop';
 
+import './Form.css';
+
 import { useForm, validate } from '../../hooks';
 
 const SocialNetworkForm = (props) => {
@@ -17,15 +19,15 @@ const SocialNetworkForm = (props) => {
   };
   return (
     <>
-      <Backdrop onClick={props.onCancelModal} />
+      <Backdrop onClick={() => props.onCancelModal(props.mode)} />
       <Modal
-        title="Edit Experience"
+        title="Edit Social Network"
         // acceptEnabled={state.formIsValid}
-        onCancelModal={props.onCancelModal}
+        onCancelModal={() => props.onCancelModal(props.mode)}
         onAcceptModal={handleSubmit}
         // isLoading={props.loading}
       >
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="input-field">
             <label htmlFor="linkedin">LinkedIn</label>
             <input
@@ -55,12 +57,6 @@ const SocialNetworkForm = (props) => {
               value={values.instagram || ''}
               onChange={handleChange}
             />
-          </div>
-          <div className="submit-buttons">
-            <button className="button-save">Save</button>
-            <button className="clear-button" onClick={handleClearInput}>
-              Clear
-            </button>
           </div>
         </form>
       </Modal>

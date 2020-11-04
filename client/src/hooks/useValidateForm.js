@@ -12,11 +12,11 @@ export default function validate(values) {
   // return {
   //   email
   // };
-  if (!values.email) {
-    errors.email = 'Email address is required';
-  }
-  if (!/\S+@\S+\.\S+/.test(values.email)) {
-    errors.email = 'Email address is invalid';
-  }
+  // if (!values.email) {
+  //   errors.email = 'Email address is required';
+  // }
+  // if (!/\S+@\S+\.\S+/.test(values.email)) {
+  //   errors.email = 'Email address is invalid';
+  // }
   return errors;
 }

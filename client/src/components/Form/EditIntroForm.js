@@ -5,10 +5,16 @@ import Backdrop from '../Backdrop/Backdrop';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
+import './Form.css';
+
 import { useForm, validate } from '../../hooks';
 
 const IntroForm = (props) => {
   const { user } = useAuth0();
+
+  const log = (values) => {
+    console.log(values);
+  };
 
   const { values, handleChange, handleSubmit, clearInput } = useForm(
     props.createProfile,
@@ -22,15 +28,15 @@ const IntroForm = (props) => {
 
   return (
     <>
-      <Backdrop onClick={props.onCancelModal} />
+      <Backdrop onClick={() => props.onCancelModal(props.mode)} />
       <Modal
         title="Edit Intro"
         // acceptEnabled={state.formIsValid}
-        onCancelModal={props.onCancelModal}
+        onCancelModal={() => props.onCancelModal(props.mode)}
         onAcceptModal={handleSubmit}
         // isLoading={props.loading}
       >
-        <form onSubmit={handleSubmit}>
+        <form>
           {/* trying to figure out hidden input w/ photo */}
           <input
             type="hidden"
@@ -74,6 +80,16 @@ const IntroForm = (props) => {
               name="currentPosition"
               id="currentPosition"
               value={values.currentPosition || ''}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="industry">Industry</label>
+            <input
+              type="text"
+              name="industry"
+              id="industry"
+              value={values.industry || ''}
               onChange={handleChange}
             />
           </div>
@@ -173,16 +189,6 @@ const IntroForm = (props) => {
             />
           </div>
           <div className="input-field">
-            <label htmlFor="industry">Industry</label>
-            <input
-              type="text"
-              name="industry"
-              id="industry"
-              value={values.industry || ''}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="input-field">
             <label htmlFor="bio">Bio</label>
             <textarea
               name="bio"
@@ -192,12 +198,6 @@ const IntroForm = (props) => {
               onChange={handleChange}
             />
           </div>
-          {/* <div className="submit-buttons">
-            <button className="button-save">Save</button>
-            <button className="clear-button" onClick={handleClearInput}>
-              Clear
-            </button>
-          </div> */}
         </form>
       </Modal>
     </>

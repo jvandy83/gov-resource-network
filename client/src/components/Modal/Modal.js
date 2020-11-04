@@ -1,31 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import ModalButton from '../Button/Modal/ModalButton';
+import Button from '../Button/Button';
 
 import './Modal.css';
 
-const modal = (props) => {
+const Modal = (props) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   return (
     <div className="modal">
       <header className="modal-header">
-        <h1>{props.title}</h1>
+        <h2>{props.title}</h2>
       </header>
+      <hr />
       <div className="modal-content">{props.children}</div>
-      <div className="modal-actions">
-        <ModalButton design="danger" mode="flat" onClick={props.onCancelModal}>
-          Cancel
-        </ModalButton>
-        <ModalButton
-          // disabled={props.acceptEnabled}
-          mode="raised"
-          onClick={props.onAcceptModal}
-          loading={props.isLoading}
-        >
-          Save
-        </ModalButton>
-      </div>
+      {!props.type ? (
+        <div className="modal-actions">
+          <Button design="danger" mode="flat" onClick={props.onCancelModal}>
+            Cancel
+          </Button>
+          <Button
+            // disabled={props.acceptEnabled}
+            mode="raised"
+            onClick={props.onAcceptModal}
+            loading={props.isLoading}
+          >
+            Save
+          </Button>
+        </div>
+      ) : null}
     </div>
   );
 };
 
-export default modal;
+export default Modal;

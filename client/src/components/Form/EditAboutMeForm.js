@@ -5,6 +5,8 @@ import Modal from '../Modal/Modal';
 
 import Backdrop from '../Backdrop/Backdrop';
 
+import './Form.css';
+
 const AboutForm = (props) => {
   const { values, handleChange, handleSubmit, clearInput } = useForm(
     props.createProfile,
@@ -18,30 +20,24 @@ const AboutForm = (props) => {
 
   return (
     <>
-      <Backdrop onClick={props.onCancelModal} />
+      <Backdrop onClick={() => props.onCancelModal(props.mode)} />
       <Modal
-        title="Edit About Me"
+        title="Edit About"
         // acceptEnabled={state.formIsValid}
-        onCancelModal={props.onCancelModal}
+        onCancelModal={() => props.onCancelModal(props.mode)}
         onAcceptModal={handleSubmit}
         // isLoading={props.loading}
       >
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="input-field">
             <label>About</label>
             <textarea
               type="textarea"
-              rows="4"
+              rows="8"
               value={values.aboutMe || ''}
               name="aboutMe"
               onChange={handleChange}
             />
-          </div>
-          <div className="submit-buttons">
-            <button className="button-save">Save</button>
-            <button className="clear-button" onClick={handleClearInput}>
-              Clear
-            </button>
           </div>
         </form>
       </Modal>

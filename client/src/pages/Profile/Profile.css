@@ -28,7 +28,6 @@
   padding: 15% 2rem;
   background: url('../../components/Image/grey-blend.jpeg') no-repeat;
   background-size: cover;
-  /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); */
 }
 
 .access-profile__display {
@@ -45,15 +44,9 @@
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.form {
-}
-
 .form-header {
   display: flex;
   justify-content: space-between;
-}
-
-.header-greeting {
 }
 
 .header-pic {
@@ -64,62 +57,14 @@
   margin-left: 1rem;
 }
 
-.input-field {
-  padding: 0.2rem 0;
-}
-
-.input-field input {
-  width: 100%;
-}
-
-textarea {
-  width: 100%;
-}
-
-.edit-button {
-  background: #fff;
-  color: #283441;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.button-save {
-  padding: 0.2rem 1rem;
-  background: #283441;
-  border-radius: 3px;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.submit-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.clear-button {
-  padding: 0.2rem 1rem;
-  background: #cd2b2c;
-  border-radius: 3px;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-input {
-  outline: none;
-}
-
 .aside {
   width: 30%;
 }
 
 #education {
-  margin-bottom: 0;
+  margin-top: 0;
 }
 
 #experience {
-  margin-top: 0;
+  margin-bottom: 0;
 }

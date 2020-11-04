@@ -1,8 +1,11 @@
 .card-item__container {
   display: flex;
   justify-content: space-between;
-  font-size: 0.9rem;
   padding: 0 0.5rem;
+}
+
+.card__element {
+  padding: 0.2rem 0;
 }
 
 .card-item {
@@ -14,29 +17,9 @@
   justify-content: space-between;
 }
 .card-item__title {
-  margin-top: 0.3rem;
+  margin-top: 0;
+  font-size: 1.2rem;
 }
-/* .card-item__content-container {
-  
-} */
-/* .card-item__content {
-  
-} */
-/* .card-item__content-job--title {
-  
-} */
-/* .card-item__content-location {
-  
-} */
-/* .card-item__links {
-  
-} */
-/* .card-item__link {
-  
-} */
-/* .card-item__button {
-
-} */
 
 .access-form__buttons {
   display: flex;
@@ -46,13 +29,6 @@
 .access-form__button {
   padding: 0 0 0 1rem;
 }
-
-/* .access-form__add-profile {
-
-} */
-/* .access-form__edit-button {
-
-} */
 
 .edit {
   padding-right: 0.5rem;
@@ -65,11 +41,21 @@
   background: #fff;
   padding: 0;
   margin: 0;
-  width: 18px;
+  width: 1rem;
+  cursor: pointer;
 }
 
-.profile-dropdown {
-  position: relative;
+.edit-icon__card {
+  cursor: pointer;
+}
+
+.edit-button {
+  background: #fff;
+  color: #283441;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .card-item__button {
@@ -85,9 +71,15 @@
   padding: 0;
 }
 .card-item__list--item {
-  /* */
+  padding-top: 0.3rem;
 }
 
 .card-item__profile--link {
-  font-weight: 400;
+  font-weight: bold;
+  text-decoration: none;
+}
+.card-item__profile--link:hover,
+.card-item__profile--link:active {
+  font-weight: bold;
+  text-decoration: none;
 }

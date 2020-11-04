@@ -1,0 +1,588 @@
+{
+  "totalRecords": 356,
+  "limit": 10,
+  "offset": 0,
+  "opportunitiesData": [
+    {
+      "noticeId": "e7e42945074a4bbab5068a7d7dde372f",
+      "title": "10--dfafasd",
+      "solicitationNumber": "15g",
+      "department": "TRANSPORTATION, DEPARTMENT OF",
+      "subTier": "FEDERAL AVIATION ADMINISTRATION",
+      "office": "690ACB ALASKA REG.  LOGISTICS DIV",
+      "postedDate": "2020-08-17",
+      "type": "Award Notice",
+      "baseType": "Award Notice",
+      "archiveType": "auto15",
+      "archiveDate": "2020-09-01",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": null,
+      "naicsCode": "111110",
+      "classificationCode": "1005",
+      "active": "Yes",
+      "award": {
+        "date": "2020-08-17T00:00:00",
+        "number": "MS-SRP-B-20-0004",
+        "amount": "0",
+        "awardee": {
+          "name": "Unison Software, Inc.",
+          "location": {
+            "streetAddress": "21251 Ridgetop Circle",
+            "streetAddress2": "Suite 100",
+            "city": { "code": "90997", "name": "Dulles" },
+            "state": { "code": "VA", "name": "Virginia" },
+            "zip": "20166-6501",
+            "country": { "code": "USA", "name": "UNITED STATES" }
+          },
+          "duns": "130698921"
+        }
+      },
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "msharma@compusearch.com",
+          "phone": null,
+          "title": null,
+          "fullName": "msys, m"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=e7e42945074a4bbab5068a7d7dde372f",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "99513",
+        "city": "ANCHORAGE",
+        "countryCode": "USA",
+        "state": "AK"
+      },
+      "placeOfPerformance": null,
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/e7e42945074a4bbab5068a7d7dde372f/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=e7e42945074a4bbab5068a7d7dde372f&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "d1db7c2925ca4ec48badd696a51c8e5d",
+      "title": "10--dfafasd",
+      "solicitationNumber": "dasggd",
+      "department": "TRANSPORTATION, DEPARTMENT OF",
+      "subTier": "FEDERAL AVIATION ADMINISTRATION",
+      "office": "690ACB ALASKA REG.  LOGISTICS DIV",
+      "postedDate": "2020-08-17",
+      "type": "Award Notice",
+      "baseType": "Award Notice",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-08-31",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": null,
+      "naicsCode": "111110",
+      "classificationCode": "1005",
+      "active": "Yes",
+      "award": {
+        "date": "2020-08-17T00:00:00",
+        "number": "MS-SRP-B-20-0003",
+        "amount": "0",
+        "awardee": {
+          "name": "Unison Software, Inc.",
+          "location": {
+            "streetAddress": "21251 Ridgetop Circle",
+            "streetAddress2": "Suite 100",
+            "city": { "code": "90997", "name": "Dulles" },
+            "state": { "code": "VA", "name": "Virginia" },
+            "zip": "20166-6501",
+            "country": { "code": "USA", "name": "UNITED STATES" }
+          },
+          "duns": "130698921"
+        }
+      },
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "msharma@compusearch.com",
+          "phone": null,
+          "title": null,
+          "fullName": "msys, m"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=d1db7c2925ca4ec48badd696a51c8e5d",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "99513",
+        "city": "ANCHORAGE",
+        "countryCode": "USA",
+        "state": "AK"
+      },
+      "placeOfPerformance": null,
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/d1db7c2925ca4ec48badd696a51c8e5d/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=d1db7c2925ca4ec48badd696a51c8e5d&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "c4e0f1660d454bbfa9ec78351986dbb0",
+      "title": "10--SAM Rest Solicitation Posting SAM and FC",
+      "solicitationNumber": "MS-SRXFP-20-0082",
+      "department": "TRANSPORTATION, DEPARTMENT OF",
+      "subTier": "FEDERAL AVIATION ADMINISTRATION",
+      "office": "690ACB ALASKA REG.  LOGISTICS DIV",
+      "postedDate": "2020-08-17",
+      "type": "Presolicitation",
+      "baseType": "Special Notice",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-08-17",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-08-18T17:00:00-03:00",
+      "naicsCode": "111110",
+      "classificationCode": "1005",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "msharma@compusearch.com",
+          "phone": null,
+          "title": null,
+          "fullName": "msys, m"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=c4e0f1660d454bbfa9ec78351986dbb0",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "99513",
+        "city": "ANCHORAGE",
+        "countryCode": "USA",
+        "state": "AK"
+      },
+      "placeOfPerformance": {
+        "streetAddress": "1001 Contractor Way",
+        "streetAddress2": "Suite 1000",
+        "city": { "name": "Washington" },
+        "state": { "code": "DC", "name": "District of Columbia" },
+        "zip": "20001",
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/c4e0f1660d454bbfa9ec78351986dbb0/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=c4e0f1660d454bbfa9ec78351986dbb0&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "afdfffbce8e841a58cd181e6049a882e",
+      "title": "10--SAM Rest IDV CTR Posting ",
+      "solicitationNumber": "asdfcae32",
+      "department": "TRANSPORTATION, DEPARTMENT OF",
+      "subTier": "FEDERAL AVIATION ADMINISTRATION",
+      "office": "690ACB ALASKA REG.  LOGISTICS DIV",
+      "postedDate": "2020-08-17",
+      "type": "Award Notice",
+      "baseType": "Award Notice",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-08-31",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": null,
+      "naicsCode": "111110",
+      "classificationCode": "1005",
+      "active": "Yes",
+      "award": {
+        "date": "2020-08-17T00:00:00",
+        "number": "MS-SRP-C-20-0030",
+        "amount": "2468",
+        "awardee": {
+          "name": "Unison Software, Inc.",
+          "location": {
+            "streetAddress": "21251 Ridgetop Circle",
+            "streetAddress2": "Suite 100",
+            "city": { "code": "90997", "name": "Dulles" },
+            "state": { "code": "VA", "name": "Virginia" },
+            "zip": "20166-6501",
+            "country": { "code": "USA", "name": "UNITED STATES" }
+          },
+          "duns": "130698921"
+        }
+      },
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "msharma@compusearch.com",
+          "phone": null,
+          "title": null,
+          "fullName": "msys, m"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=afdfffbce8e841a58cd181e6049a882e",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "99513",
+        "city": "ANCHORAGE",
+        "countryCode": "USA",
+        "state": "AK"
+      },
+      "placeOfPerformance": null,
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/afdfffbce8e841a58cd181e6049a882e/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=afdfffbce8e841a58cd181e6049a882e&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "acbc9cb231dd4cfea7d387c3c0ba805a",
+      "title": "10--dfafasd",
+      "solicitationNumber": "fdsve3",
+      "department": "TRANSPORTATION, DEPARTMENT OF",
+      "subTier": "FEDERAL AVIATION ADMINISTRATION",
+      "office": "690ACB ALASKA REG.  LOGISTICS DIV",
+      "postedDate": "2020-08-17",
+      "type": "Justification",
+      "baseType": "Justification",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-08-31",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": null,
+      "naicsCode": "111110",
+      "classificationCode": "1005",
+      "active": "Yes",
+      "award": { "date": "2020-08-17T00:00:00", "number": "MS-SRP-B-20-0005" },
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "msharma@compusearch.com",
+          "phone": null,
+          "title": null,
+          "fullName": "msys, m"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=acbc9cb231dd4cfea7d387c3c0ba805a",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "99513",
+        "city": "ANCHORAGE",
+        "countryCode": "USA",
+        "state": "AK"
+      },
+      "placeOfPerformance": null,
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/acbc9cb231dd4cfea7d387c3c0ba805a/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=acbc9cb231dd4cfea7d387c3c0ba805a&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "a0cdc2dce0854bac82fe1803c184ab05",
+      "title": "10--SAM Rest PO with web link",
+      "solicitationNumber": "agfd",
+      "department": "TRANSPORTATION, DEPARTMENT OF",
+      "subTier": "FEDERAL AVIATION ADMINISTRATION",
+      "office": "690ACB ALASKA REG.  LOGISTICS DIV",
+      "postedDate": "2020-08-17",
+      "type": "Award Notice",
+      "baseType": "Award Notice",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-08-31",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": null,
+      "naicsCode": "111110",
+      "classificationCode": "1005",
+      "active": "Yes",
+      "award": {
+        "date": "2020-08-17T00:00:00",
+        "number": "MS-SRPO-13-008",
+        "amount": "0",
+        "awardee": {
+          "name": "Unison Software, Inc.",
+          "location": {
+            "streetAddress": "21251 Ridgetop Circle",
+            "streetAddress2": "Suite 100",
+            "city": { "code": "90997", "name": "Dulles" },
+            "state": { "code": "VA", "name": "Virginia" },
+            "zip": "20166-6501",
+            "country": { "code": "USA", "name": "UNITED STATES" }
+          },
+          "duns": "130698921"
+        }
+      },
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "msharma@compusearch.com",
+          "phone": null,
+          "title": null,
+          "fullName": "msys, m"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=a0cdc2dce0854bac82fe1803c184ab05",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "99513",
+        "city": "ANCHORAGE",
+        "countryCode": "USA",
+        "state": "AK"
+      },
+      "placeOfPerformance": null,
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/a0cdc2dce0854bac82fe1803c184ab05/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=a0cdc2dce0854bac82fe1803c184ab05&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "9639224863924674a9ed2a5a80ef5359",
+      "title": "10--SAM Rest Solicitation Posting SAM and FC",
+      "solicitationNumber": "MS-SRXFP-20-0082",
+      "department": "TRANSPORTATION, DEPARTMENT OF",
+      "subTier": "FEDERAL AVIATION ADMINISTRATION",
+      "office": "690ACB ALASKA REG.  LOGISTICS DIV",
+      "postedDate": "2020-08-17",
+      "type": "Special Notice",
+      "baseType": "Special Notice",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-08-31",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-08-18T17:00:00-03:00",
+      "naicsCode": "111110",
+      "classificationCode": "1005",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "msharma@compusearch.com",
+          "phone": null,
+          "title": null,
+          "fullName": "msys, m"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=9639224863924674a9ed2a5a80ef5359",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "99513",
+        "city": "ANCHORAGE",
+        "countryCode": "USA",
+        "state": "AK"
+      },
+      "placeOfPerformance": null,
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/9639224863924674a9ed2a5a80ef5359/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=9639224863924674a9ed2a5a80ef5359&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "8c980aebf5104654ab34003f13f5915a",
+      "title": "10--SAM Rest Solicitation Posting SAM and FC",
+      "solicitationNumber": "MS-SRXFP-20-0082",
+      "department": "TRANSPORTATION, DEPARTMENT OF",
+      "subTier": "FEDERAL AVIATION ADMINISTRATION",
+      "office": "690ACB ALASKA REG.  LOGISTICS DIV",
+      "postedDate": "2020-08-17",
+      "type": "Sources Sought",
+      "baseType": "Special Notice",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-08-31",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-08-18T17:00:00-03:00",
+      "naicsCode": "111110",
+      "classificationCode": "1005",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "msharma@compusearch.com",
+          "phone": null,
+          "title": null,
+          "fullName": "msys, m"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=8c980aebf5104654ab34003f13f5915a",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "99513",
+        "city": "ANCHORAGE",
+        "countryCode": "USA",
+        "state": "AK"
+      },
+      "placeOfPerformance": {
+        "streetAddress": "1001 Contractor Way",
+        "streetAddress2": "Suite 1000",
+        "city": { "name": "Washington" },
+        "state": { "code": "DC", "name": "District of Columbia" },
+        "zip": "20001",
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/8c980aebf5104654ab34003f13f5915a/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=8c980aebf5104654ab34003f13f5915a&limit=1"
+        }
+      ],
+      "resourceLinks": null
+    },
+    {
+      "noticeId": "8a3cca94b86945c7979a4451679945cd",
+      "title": "Dog Food",
+      "solicitationNumber": "Barajas04-FATS1278236DF04-DF",
+      "department": "DEPT OF DEFENSE",
+      "subTier": "DEPT OF THE AIR FORCE",
+      "office": "FA3047  802 CONS CC JBSA",
+      "postedDate": "2020-08-17",
+      "type": "Combined Synopsis/Solicitation",
+      "baseType": "Combined Synopsis/Solicitation",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-09-22",
+      "typeOfSetAsideDescription": "Total Small Business Set-Aside (FAR 19.5)",
+      "typeOfSetAside": "SBA",
+      "responseDeadLine": "2020-08-19T13:30:00-05:00",
+      "naicsCode": "311111",
+      "classificationCode": "8710",
+      "active": "Yes",
+      "award": null,
+      "pointOfContact": [
+        {
+          "fax": "",
+          "type": "primary",
+          "email": "alexis.barajas@us.af.mil",
+          "phone": "",
+          "title": null,
+          "fullName": "Alexis S. Barajas"
+        },
+        {
+          "fax": "",
+          "type": "secondary",
+          "email": "dakota.powell@us.af.mil",
+          "phone": "",
+          "title": null,
+          "fullName": "SSgt Dakota Powell"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=8a3cca94b86945c7979a4451679945cd",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "78236-5286",
+        "city": "JBSA LACKLAND",
+        "countryCode": "USA",
+        "state": "TX"
+      },
+      "placeOfPerformance": {
+        "city": { "code": "TX-12", "name": "JBSA Lackland" },
+        "state": { "code": "TX", "name": "Texas" },
+        "zip": "78236",
+        "country": { "code": "USA", "name": "UNITED STATES" }
+      },
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/8a3cca94b86945c7979a4451679945cd/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=8a3cca94b86945c7979a4451679945cd&limit=1"
+        }
+      ],
+      "resourceLinks": [
+        "https://alpha.sam.gov/api/prodlike/opps/v3/opportunities/resources/files/a6f2ff53efcc498c9f0cf4be649a17c1/download?api_key=null&token="
+      ]
+    },
+    {
+      "noticeId": "87bbde6d60bf46389d059d87af021db2",
+      "title": "Solicitation -- 56",
+      "solicitationNumber": "W912HQ20R6357",
+      "department": "DEPT OF DEFENSE",
+      "subTier": "DEPT OF THE ARMY",
+      "office": "US ARMY HUMPHREYS ENGINEER CTR SPT",
+      "postedDate": "2020-08-17",
+      "type": "Solicitation",
+      "baseType": "Solicitation",
+      "archiveType": "autocustom",
+      "archiveDate": "2020-10-26",
+      "typeOfSetAsideDescription": null,
+      "typeOfSetAside": null,
+      "responseDeadLine": "2020-09-16",
+      "naicsCode": "561710",
+      "classificationCode": "56",
+      "active": "Yes",
+      "award": { "awardee": { "location": {} } },
+      "pointOfContact": [
+        {
+          "fax": null,
+          "type": "primary",
+          "email": "gharrison@mail.mil",
+          "phone": null,
+          "title": null,
+          "fullName": "Randy White 202-555-5555"
+        }
+      ],
+      "description": "https://api-alpha.sam.gov/prodlike/opportunities/v1/noticedesc?noticeid=87bbde6d60bf46389d059d87af021db2",
+      "organizationType": "OFFICE",
+      "officeAddress": {
+        "zipcode": "22315-3860",
+        "city": "ALEXANDRIA",
+        "countryCode": "USA",
+        "state": "VA"
+      },
+      "placeOfPerformance": {},
+      "additionalInfoLink": null,
+      "uiLink": "https://alpha.sam.gov/opp/87bbde6d60bf46389d059d87af021db2/view",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?noticeid=87bbde6d60bf46389d059d87af021db2&limit=1"
+        }
+      ],
+      "resourceLinks": [
+        "https://alpha.sam.gov/api/prodlike/opps/v3/opportunities/resources/files/7005918e654748fd8c8596cc6d8d324d/download?api_key=null&token="
+      ]
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://api-alpha.sam.gov/prodlike/opportunities/v1/search?limit=10&postedFrom=08/08/2020&postedTo=10/22/2020"
+    }
+  ]
+}

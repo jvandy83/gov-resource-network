@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './ModalButton.css';
+import './Button.css';
 
 const button = (props) =>
   !props.link ? (
@@ -24,7 +24,7 @@ const button = (props) =>
         `button--${props.design}`,
         `button--${props.mode}`
       ].join(' ')}
-      to={props.link}
+      to={props.linkTo}
     >
       {props.children}
     </Link>

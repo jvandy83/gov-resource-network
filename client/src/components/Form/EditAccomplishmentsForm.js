@@ -8,6 +8,8 @@ import Modal from '../Modal/Modal';
 
 import Backdrop from '../Backdrop/Backdrop';
 
+import './Form.css';
+
 const AccomplishmentsForm = (props) => {
   const { user } = useAuth0();
 
@@ -42,15 +44,15 @@ const AccomplishmentsForm = (props) => {
 
   return (
     <>
-      <Backdrop onClick={props.onCancelModal} />
+      <Backdrop onClick={() => props.onCancelModal(props.mode)} />
       <Modal
         title="Edit Accomplishments"
         // acceptEnabled={state.formIsValid}
-        onCancelModal={props.onCancelModal}
+        onCancelModal={() => props.onCancelModal(props.mode)}
         onAcceptModal={handleSubmit}
         // isLoading={props.loading}
       >
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="input-field">
             <label htmlFor="publications">Publications</label>
             <input
@@ -110,12 +112,6 @@ const AccomplishmentsForm = (props) => {
               value={values.languages || ''}
               onChange={handleChange}
             />
-          </div>
-          <div className="submit-buttons">
-            <button className="button-save">Save</button>
-            <button className="clear-button" onClick={handleClearInput}>
-              Clear
-            </button>
           </div>
         </form>
       </Modal>

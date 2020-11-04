@@ -1,0 +1,52 @@
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-section__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-section__title > h3 {
+  margin-bottom: 0;
+}
+
+.main-section__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-section__list-item {
+  font-weight: 600;
+}
+.main-section__list-item > div {
+  padding: 0.5rem 0;
+}
+
+.list-item__title {
+  color: #111;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+#contact-card__edit-icon {
+  width: 1rem;
+}
+
+.edit-icon__card {
+  cursor: pointer;
+}
+
+.list-item__link {
+  color: rgb(58, 58, 175);
+  text-decoration: none;
+}
+.list-item__link:hover {
+  text-decoration: underline;
+}
+
+.phone-number {
+  text-decoration: none;
+}

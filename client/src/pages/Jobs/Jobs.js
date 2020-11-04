@@ -7,6 +7,8 @@ import useStateNames from '../../util/useStateNames';
 
 import axios from 'axios';
 
+const API_KEY_DEV = process.env.REACT_APP_BETA_SAM_GOV_API_KEY__DEV;
+
 const Jobs = () => {
   const INITIAL_DROPDOWN_STATE = {
     postedTo: false,
@@ -30,6 +32,7 @@ const Jobs = () => {
   };
   const [dropdown, setDropdown] = useState(INITIAL_DROPDOWN_STATE);
 
+  // bringing in U.S. state names for input list
   const { stateValues } = useStateNames();
 
   const [values, setValues] = useState({});
@@ -159,7 +162,15 @@ const Jobs = () => {
     }
     const newArray = Object.entries(updatedEntries);
     return newArray.map((item, idx) => (
-      <span key={item[1]} style={{ background: colors[idx] }}>
+      <span
+        key={item[1]}
+        style={{
+          background: colors[idx],
+          padding: '.3rem',
+          borderRadius: '.5rem',
+          marginRight: '.5rem'
+        }}
+      >
         {item[0]}={item[1]}
       </span>
     ));
@@ -178,7 +189,6 @@ const Jobs = () => {
   }, [isSubmitting, values]);
 
   const fetchContracts = async () => {
-    const api_key = process.env.REACT_APP_BETA_SAM_GOV_API_KEY__DEV;
     // group entries to easily
     // join them for query string
     const searchArray = Object.entries(values);
@@ -203,7 +213,7 @@ const Jobs = () => {
 
     try {
       const res = await axios.get(
-        `${baseProdLikeUrl}/search?limit=10&api_key=${api_key}&${searchString}`
+        `${baseProdLikeUrl}/search?limit=10&api_key=${API_KEY_DEV}&${searchString}`
       );
       if (res.status !== 200 && res.status !== 201) {
         console.log('There was an error');
@@ -214,10 +224,30 @@ const Jobs = () => {
     }
   };
 
+  const fetchDescriptions = () => {
+    const { opportunitiesData } = contractData;
+    const descPromise = opportunitiesData.map(async (op) => {
+      await axios.get(`${op.description}&api_key=${API_KEY_DEV}`);
+    });
+    console.log(Promise.all(descPromise));
+  };
+
+  const buildContractList = () => {
+    const descriptions = fetchDescriptions();
+    const { opportunitiesData } = contractData;
+    opportunitiesData.map((op, idx) => (
+      <ul key={op.title} className="bids-display__list">
+        <li className="bids-display__item title">{op.title}</li>
+        <li className="bids-display__item active">{op.active}</li>
+        <li className="bids-display__item description">{descriptions[idx]}</li>
+      </ul>
+    ));
+  };
+
   return (
     <div onClick={(e) => handleClickOutside(e, dropdown)} className="jobs-root">
-      <h2 className="jobs-header__title">Search for your contracts</h2>
-      <div>
+      <h1 className="jobs-header__title">Search for your contracts</h1>
+      <div className="jobs-search__bar-container">
         <div className="jobs-search__entries">
           {isSubmitting && buildSearchUrl(isRemovingInputValue)}
         </div>
@@ -225,7 +255,9 @@ const Jobs = () => {
           Search
         </button>
       </div>
-
+      <div>
+        <span>Select entries from dropdown menu below</span>
+      </div>
       <div className="jobs-main__section">
         <div className="jobs-input__form">
           {dropdown.postedFrom ? (
@@ -533,12 +565,17 @@ const Jobs = () => {
         </div>
         <div className="bids-display__container">
           <h2 className="bids-display__header">Results</h2>
-          <ul className="bids-display__item">
-            <li className="bids-display__title bid">Contract Title</li>
-            <li className="bids-display__isopen bid">Open/Close</li>
-            <li className="bids-display__description bid">Description</li>
-          </ul>
+          <div>
+            <ul className="bids-display__list">
+              <li className="bids-display__item title">Contract Title</li>
+              <li className="bids-display__item active">Active</li>
+              <li className="bids-display__item description">Description</li>
+            </ul>
+          </div>
           {/* list of opportunities here */}
+          {/* {Object.keys(contractData).length && (
+            <div className="bids-display__list"></div>
+          )} */}
         </div>
       </div>
     </div>

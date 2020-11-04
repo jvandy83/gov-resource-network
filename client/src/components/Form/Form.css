@@ -1,0 +1,20 @@
+.input-field {
+  padding: 0.4rem 0;
+}
+
+.input-field input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+form {
+  padding-bottom: 1.5rem;
+}
