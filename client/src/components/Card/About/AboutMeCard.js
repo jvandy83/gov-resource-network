@@ -4,9 +4,9 @@ import EditIcon from '@material-ui/icons/Edit';
 
 import axios from 'axios';
 
-export default (props) => {
+const AboutMe = (props) => {
   const { card } = props.profileData.profile;
-  return (
+  return card ? (
     <div className="card-item__container">
       <div>
         <h3 className="card-item__title">{props.title}</h3>
@@ -19,5 +19,7 @@ export default (props) => {
         />
       </div>
     </div>
-  );
+  ) : null;
 };
+
+export default AboutMe;

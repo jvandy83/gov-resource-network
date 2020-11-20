@@ -3,6 +3,7 @@ import Home from '../Home/Home';
 import Profile from '../Profile/Profile';
 import Network from '../Network/Network';
 import Jobs from '../Jobs/Jobs';
+import Register from '../Register/Register';
 import {
   MainNavigation,
   Loading,
@@ -22,6 +23,7 @@ import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
   const { isLoading, isAuthenticated, user } = useAuth0();
+  console.log(user);
 
   const INITIAL_APP_STATE = {
     showBackdrop: false,
@@ -52,12 +54,17 @@ const App = () => {
     <>
       {state.showBackdrop && <Backdrop onClick={backdropClickHandler} />}
       <ErrorHandler error={state.error} onHandle={errorHandler} />
+
       <MainNavigation user={user} isAuth={isAuthenticated} />
       {isLoading ? (
         <Loading />
       ) : (
         <Switch>
           <Route exact path="/" render={(routeProps) => <Home user={user} />} />
+          <Route
+            path="/profile/new-user"
+            render={(routeProps) => <Register {...routeProps} user={user} />}
+          />
           <Route
             path="/profile/:id"
             render={(routeProps) => <Profile {...routeProps} user={user} />}

@@ -8,8 +8,9 @@ import Backdrop from '../Backdrop/Backdrop';
 import './Form.css';
 
 const AboutForm = (props) => {
+  const { createProfile } = props;
   const { values, handleChange, handleSubmit, clearInput } = useForm(
-    props.createProfile,
+    createProfile,
     validate
   );
 

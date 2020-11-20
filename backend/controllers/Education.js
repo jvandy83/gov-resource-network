@@ -72,8 +72,9 @@ exports.getEducation = async (req, res, next) => {
 
   try {
     const education = await Education.findOne({ auth_0_user: userId });
+
     if (!education) {
-      return res.status(404).json({
+      return res.status(200).json({
         message: 'User could not be found'
       });
     }

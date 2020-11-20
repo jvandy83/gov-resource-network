@@ -12,7 +12,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import '../Card.css';
 import EditContactForm from '../../Form/EditContactForm';
 
-export default (props) => {
+const IntroCard = (props) => {
   const [showIntro, setShowIntro] = useState(false);
   const [showContact, setShowContact] = useState(false);
   useEffect(() => {
@@ -26,7 +26,7 @@ export default (props) => {
     return <span>{`${city}, ${state}, ${country}`}</span>;
   };
 
-  return (
+  return card ? (
     <div className="card-item__container">
       {showContact && (
         <ContactCard
@@ -54,5 +54,7 @@ export default (props) => {
         />
       </div>
     </div>
-  );
+  ) : null;
 };
+
+export default IntroCard;

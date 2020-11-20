@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import LoginButton from '../../Button/Login/LoginButton';
 import LogoutButton from '../../Button/Login/LogoutButton';
 import { Link } from 'react-router-dom';
@@ -8,8 +8,23 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import WorkIcon from '@material-ui/icons/Work';
 import SettingsIcon from '@material-ui/icons/Settings';
+import axios from 'axios';
 
-const Nav = ({ user }) => {
+const Nav = (props) => {
+  const [appUser, setAppUser] = useState({});
+  // create api call that check's
+  // to see if user has existing profile for GRN
+  // useEffect(() => {
+  //   axios.get(`http://localhost:5000/auth/${props.user.email}`).then((res) => {
+  //     if (res.status !== 200) {
+  //       console.log('could not find user');
+  //     }
+  //     setAppUser((prev) => ({
+  //       ...prev,
+  //       appUser: res.user
+  //     }));
+  //   });
+  // });
   const { isAuthenticated } = useAuth0();
   const renderAuthNav = () => {
     return isAuthenticated ? (
@@ -34,7 +49,7 @@ const Nav = ({ user }) => {
           <li className="nav-item nav-item__jobs">
             <Link
               className="nav-item__link nav-item__link--underline"
-              to={`/jobs/${user.sub}`}
+              to={`/jobs/${props.user.sub}`}
             >
               <span className="nav-item__icon">
                 <WorkIcon />
@@ -56,10 +71,13 @@ const Nav = ({ user }) => {
           <li id="profile-nav__item" className="nav-item nav-item__profile">
             <div className="nav-item__content nav-item__link--underline">
               <div id="nav-settings__dropdown" className="nav-item__dropdown ">
-                <Link className="nav-item__link " to={`/profile/${user.sub}`}>
+                <Link
+                  className="nav-item__link "
+                  to={`/profile/${props.user.sub}`}
+                >
                   <img
                     className="nav-item__profile-member--photo"
-                    src={user.picture}
+                    src={props.user.picture}
                     alt="profile"
                   />
                   <div className="nav-item__title--container ">

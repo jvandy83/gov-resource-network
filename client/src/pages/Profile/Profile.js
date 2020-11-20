@@ -43,7 +43,8 @@ const EDIT_MODE = {
   editContact: false
 };
 
-const Profile = () => {
+const Profile = (props) => {
+  console.log(props);
   const { user } = useAuth0();
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -149,6 +150,7 @@ const Profile = () => {
               <div>
                 {editMode.editIntro && (
                   <EditIntroForm
+                    user={user.sub}
                     createProfile={() => createProfile}
                     onCancelModal={cancelEditHandler}
                     mode="editIntro"
@@ -156,6 +158,7 @@ const Profile = () => {
                 )}
                 <div>
                   <IntroCard
+                    user={user.sub}
                     title="Intro"
                     mode="editIntro"
                     profileData={profileData}
@@ -170,6 +173,7 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editAboutMe && (
                 <EditAboutMeForm
+                  user={user.sub}
                   createProfile={createProfile}
                   onCancelModal={cancelEditHandler}
                   mode="editAboutMe"
@@ -177,6 +181,7 @@ const Profile = () => {
               )}
               <div>
                 <AboutMeCard
+                  user={user.sub}
                   title="About Me"
                   mode="editAboutMe"
                   profileData={profileData}
@@ -191,11 +196,13 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editExp && (
                 <EditExperienceForm
+                  user={user.sub}
                   onCancelModal={cancelEditHandler}
                   mode="editExp"
                 />
               )}
               <ExperienceCard
+                user={user.sub}
                 title="Experience"
                 mode="editExp"
                 onEditHandler={onEditHandler}
@@ -208,15 +215,17 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editEdu && (
                 <EditEducationForm
+                  user={user.sub}
                   onCancelModal={cancelEditHandler}
                   mode="editEdu"
                 />
               )}
               <EducationCard
+                user={user.sub}
                 title="Education"
                 mode="editEdu"
                 onEditHandler={onEditHandler}
-                error={error}
+                catchError={catchError}
                 errorHandler={errorHandler}
               />
             </div>
@@ -225,12 +234,14 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editSocial && (
                 <EditSocialNetworkForm
+                  user={user.sub}
                   createProfile={createProfile}
                   onCancelModal={cancelEditHandler}
                   mode="editSocial"
                 />
               )}
               <SocialNetworkCard
+                user={user.sub}
                 title="Social Network"
                 mode="editSocial"
                 onEditHandler={onEditHandler}
@@ -242,11 +253,13 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editAccomp && (
                 <EditAccomplishmentsForm
+                  user={user.sub}
                   onCancelModal={cancelEditHandler}
                   mode="editAccomp"
                 />
               )}
               <AccomplishmentsCard
+                user={user.sub}
                 title="Accomplishments"
                 mode="editAccomp"
                 onEditHandler={onEditHandler}

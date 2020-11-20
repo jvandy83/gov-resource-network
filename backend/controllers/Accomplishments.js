@@ -95,7 +95,7 @@ exports.getAccomplishments = async (req, res, next) => {
       auth_0_user: userId
     });
     if (!accomplishments) {
-      return res.status(404).json({
+      return res.status(200).json({
         message: 'User could not be found'
       });
     }
