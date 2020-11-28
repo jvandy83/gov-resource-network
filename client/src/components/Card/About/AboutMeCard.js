@@ -6,11 +6,11 @@ import axios from 'axios';
 
 const AboutMe = (props) => {
   const { card } = props.profileData.profile;
-  return card ? (
+  return (
     <div className="card-item__container">
       <div>
         <h3 className="card-item__title">{props.title}</h3>
-        <div>{card.aboutMe}</div>
+        <div>{card && card.aboutMe}</div>
       </div>
       <div>
         <EditIcon
@@ -19,7 +19,7 @@ const AboutMe = (props) => {
         />
       </div>
     </div>
-  ) : null;
+  );
 };
 
 export default AboutMe;

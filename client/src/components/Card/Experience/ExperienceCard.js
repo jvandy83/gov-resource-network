@@ -36,39 +36,40 @@ const ExperienceCard = (props) => {
   }
 
   const createExpProfile = () => {
-    const exp = expData.exp.card.experience;
+    const { experience } = expData.exp.card;
 
-    return exp.map((e) => {
-      const from = new Date(e.prevFrom);
-      const to = new Date(e.prevTo);
-      return (
-        // replace Math.random() with a
-        // key created by map function
-        <div key={Math.random()}>
-          <div className="card__element">{e.prevTitle}</div>
-          <div className="card__element">{e.prevCompany}</div>
-          <div className="card__element">
-            {from.toLocaleDateString()} - {to.toLocaleDateString()}
-          </div>
-        </div>
-      );
-    });
+    return experience
+      ? experience.map((e) => {
+          const from = new Date(e.prevFrom);
+          const to = new Date(e.prevTo);
+          return (
+            // replace Math.random() with a
+            // key created by map function
+            <div key={Math.random()}>
+              <div className="card__element">{e.prevTitle}</div>
+              <div className="card__element">{e.prevCompany}</div>
+              <div className="card__element">
+                {from.toLocaleDateString()} - {to.toLocaleDateString()}
+              </div>
+            </div>
+          );
+        })
+      : null;
   };
 
   return (
-    <div>Experience</div>
-    // <div className="card-item__container">
-    //   <div>
-    //     <h3 className="card-item__title">{props.title}</h3>
-    //     {createExpProfile()}
-    //   </div>
-    //   <div>
-    //     <EditIcon
-    //       id="edit-icon"
-    //       onClick={() => props.onEditHandler('editExp')}
-    //     />
-    //   </div>
-    // </div>
+    <div className="card-item__container">
+      <div>
+        <h3 className="card-item__title">{props.title}</h3>
+        {/* {createExpProfile()} */}
+      </div>
+      <div>
+        <EditIcon
+          id="edit-icon"
+          onClick={() => props.onEditHandler('editExp')}
+        />
+      </div>
+    </div>
   );
 };
 

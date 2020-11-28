@@ -54,7 +54,6 @@ const EducationCard = (props) => {
       <div>
         <h3 className="card-item__title">{props.title}</h3>
         {/* {createEduProfile()} */}
-        <div>Education</div>
       </div>
       <div>
         <EditIcon

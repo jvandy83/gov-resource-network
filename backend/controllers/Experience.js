@@ -35,7 +35,7 @@ exports.addExperience = async (req, res, next) => {
   const body = req.body.data;
 
   const {
-    auth_0_user,
+    appUserId,
     prevTitle,
     prevCompany,
     prevLocation,
@@ -46,7 +46,7 @@ exports.addExperience = async (req, res, next) => {
   } = body;
 
   try {
-    const doc = await Experience.findOne({ auth_0_user: auth_0_user });
+    const doc = await Experience.findOne({ appUserId: appUserId });
 
     if (doc) {
       const expArray = doc.experience;
@@ -67,7 +67,10 @@ exports.addExperience = async (req, res, next) => {
     const experience = [];
     experience.push(expObj);
 
-    const newExperience = new Experience({ experience, auth_0_user });
+    const newExperience = new Experience({
+      experience,
+      appUserId: appUserId
+    });
 
     await newExperience.save();
 
@@ -81,10 +84,10 @@ exports.addExperience = async (req, res, next) => {
 };
 
 exports.getExperience = async (req, res, next) => {
-  const userId = req.params.id;
+  const appUserId = req.params.id;
 
   try {
-    const experience = await Experience.findOne({ auth_0_user: userId });
+    const experience = await Experience.findOne({ appUserId: appUserId });
     if (!experience) {
       return res.status(200).json({
         message: 'User not found'

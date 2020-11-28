@@ -5,14 +5,28 @@ const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 const gravatar = require('gravatar');
 
-exports.getAuth = (req, res, next) => {
-  User.findById(req.user._id)
-    .select('-password')
+// create function that
+// checks to see if a
+// user is new each time
+// the user logs in
+
+exports.getAppUser = (req, res, next) => {
+  const { id } = req.params;
+  User.findOne({ appUserId: id })
     .then((user) => {
+      // if user is not registered
+      // then do not throw an error
+      // because it's being handled
+      // by react-router
       if (!user) {
-        return res.status(500).send('Server Error');
+        return res.status(404).json({
+          message: 'User is not registered with gov-link'
+        });
       }
-      return res.json(user);
+      return res.status(200).json({
+        message: 'Success',
+        user: user
+      });
     })
     .catch((err) => {
       console.error(err.message);
@@ -20,9 +34,9 @@ exports.getAuth = (req, res, next) => {
 };
 
 exports.register = (req, res, next) => {
-  console.log(req.body);
+  const { email } = req.body;
 
-  User.findOne({ email })
+  User.findOne({ email: email })
     .then((user) => {
       console.log(user);
       if (!user) {
@@ -55,32 +69,63 @@ exports.register = (req, res, next) => {
     });
 };
 
-exports.signup = (req, res, next) => {
-  console.log('inside signup!!!!!!!!!!!');
+exports.createNewUser = (req, res, next) => {
+  const {
+    isAppUser,
+    appUserId,
+    firstName,
+    lastName,
+    email,
+    email_verified,
+    family_name,
+    given_name,
+    locale,
+    nickname,
+    picture,
+    sub
+  } = req.body;
 
-  User.findById({ user_id })
+  User.findOne({ appUserId: appUserId })
     .then((user) => {
       if (user) {
-        return res.status(422).json({
-          message: 'User with that email already exists.'
+        // user already exists
+        // which is fine so
+        // don't throw error code
+        return res.status(200).json({
+          message: 'User already exists.'
         });
-      }
-      const newUser = new User({ ...req.body });
-      newUser
-        .save()
-        .then((err, result) => {
-          if (!err) {
-            console.log('CREATED USER!!!', result);
-            res.status(200).json({
+      } else {
+        const newUser = new User({
+          isAppUser,
+          appUserId,
+          firstName,
+          lastName,
+          email,
+          email_verified,
+          family_name,
+          given_name,
+          locale,
+          nickname,
+          picture,
+          sub
+        });
+        newUser
+          .save()
+          .then((result) => {
+            console.log('User was successfully created!!!', result);
+            return res.status(200).json({
               message: 'User was successfully created.',
               user: result
             });
-          }
-        })
-        .catch((err) => {
-          console.error(err.message);
-          return res.status(400).send('Could not save user');
-        });
+          })
+          .catch((err) => {
+            console.error(err.message);
+            return res.status(400).json({
+              message: 'Could not save user',
+              error: err
+            });
+          });
+      }
     })
     .catch((err) => {
       console.error(err.message);

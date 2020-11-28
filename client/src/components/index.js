@@ -1,4 +1,4 @@
-import LoginButton from './Button/Login/LoginButton';
+import LoginButton from './Login/LoginButton';
 import MainNavigation from './Navigation/MainNavigation/MainNavigation';
 import Settings from './UserSettings/Settings';
 

@@ -44,7 +44,6 @@ const EDIT_MODE = {
 };
 
 const Profile = (props) => {
-  console.log(props);
   const { user } = useAuth0();
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -85,39 +84,13 @@ const Profile = (props) => {
     setState({ error: null });
   };
 
-  // Since createProfile is used in more than one
-  // card, place function inside profile page to
-  // reduce repitition
-  const createProfile = async (values) => {
-    try {
-      const res = await axios.put(`http://localhost:5000/api/profile`, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: { ...values, auth_0_user: user.sub }
-      });
-      if (res.status !== 200 && res.status !== 201) {
-        const err = new Error(
-          'There was an error that occurred while trying to create or update a profile.'
-        );
-      }
-    } catch (err) {
-      catchError(err);
-    }
-  };
-
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/profile/${user.sub}`)
       .then((res) => {
         if (res.status !== 200) {
-          const err = new Error(
-            'An error occured while trying to fetch a profile.'
-          );
-          setState((prev) => ({
-            ...prev,
-            error: err
-          }));
+          const err = 'An error occured while trying to fetch a profile.';
+          console.error(err);
         }
         const profile = res.data;
         setProfileData((prev) => ({
@@ -130,7 +103,7 @@ const Profile = (props) => {
         }));
       })
       .catch(catchError);
-  }, []);
+  }, [user.sub]);
 
   if (!state.showCard) {
     return <Loading />;
@@ -151,14 +124,14 @@ const Profile = (props) => {
                 {editMode.editIntro && (
                   <EditIntroForm
                     user={user.sub}
-                    createProfile={() => createProfile}
+                    createProfile={props.createProfile}
                     onCancelModal={cancelEditHandler}
                     mode="editIntro"
                   />
                 )}
                 <div>
                   <IntroCard
-                    user={user.sub}
+                    user={user}
                     title="Intro"
                     mode="editIntro"
                     profileData={profileData}
@@ -174,7 +147,7 @@ const Profile = (props) => {
               {editMode.editAboutMe && (
                 <EditAboutMeForm
                   user={user.sub}
-                  createProfile={createProfile}
+                  createProfile={props.createProfile}
                   onCancelModal={cancelEditHandler}
                   mode="editAboutMe"
                 />
@@ -235,7 +208,7 @@ const Profile = (props) => {
               {editMode.editSocial && (
                 <EditSocialNetworkForm
                   user={user.sub}
-                  createProfile={createProfile}
+                  createProfile={props.createProfile}
                   onCancelModal={cancelEditHandler}
                   mode="editSocial"
                 />

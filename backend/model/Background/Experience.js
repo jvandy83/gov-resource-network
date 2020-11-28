@@ -3,11 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const experienceSchema = new Schema({
-  auth_0_user: String,
-  mongo_user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
+  appUserId: String,
   experience: [
     {
       prevTitle: String,

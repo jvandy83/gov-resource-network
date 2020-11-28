@@ -1,0 +1,58 @@
+#RegisterRoot {
+  height: 100%;
+}
+
+.entryForm-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin: 30% auto;
+}
+
+.entryForm-header {
+  width: auto;
+  margin: auto;
+}
+
+.entryForm {
+  padding: 1rem 1.5rem;
+  display: flex;
+  width: 50%;
+  margin: auto;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.entryForm-label {
+  padding: 1rem 0;
+}
+
+.entryForm-input {
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.3);
+  border: none;
+  padding: 0.3rem 0.5rem;
+}
+
+.entryForm-action {
+  margin: 2rem auto;
+  background: #fff;
+}
+
+.entryForm-button {
+  width: 100px;
+  padding: 0.3rem 1rem;
+  background: #283441;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  outline: none;
+  border: none;
+  transition: color 500ms ease-in-out;
+}
+
+.entryForm-button:hover {
+  background: #36404b;
+}
