@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const educationSchema = new Schema({
-  auth_0_user: String,
-  mongo_user: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },

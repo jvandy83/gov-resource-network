@@ -46,7 +46,16 @@ exports.signup = (req, res, next) => {
       bcrypt
         .hash(password, 10)
         .then((hashedPassword) => {
-          const newUser = new User({ ...req.body, password: hashedPassword });
+          const avatar = gravatar.url(email, {
+            s: '200',
+            r: 'g',
+            g: 'mm'
+          });
+          const newUser = new User({
+            ...req.body,
+            password: hashedPassword,
+            avatar
+          });
           newUser
             .save()
             .then((result) => {
@@ -75,7 +84,7 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-  const { email, password } = req.body.data;
+  const { email, password } = req.body;
 
   User.findOne({ email }).then((user) => {
     if (!user) {
@@ -83,24 +92,37 @@ exports.login = (req, res, next) => {
         message: 'No user could be found with that email.'
       });
     }
-    bcrypt.compare(password, user.password).then((isMatch) => {
-      if (!isMatch) {
-        res.status(401).json({
-          message: 'The email or password is incorrect.'
-        });
-      }
-      const token = jwt.sign(
-        {
-          userId: user._id.toString()
-        },
-        {
-          secret: jwtSecret
+    bcrypt
+      .compare(password, user.password)
+      .then((isMatch) => {
+        if (!isMatch) {
+          res.status(401).json({
+            message: 'The email or password is incorrect.'
+          });
         }
-      );
-      res.status(200).json({
-        message: 'Login was successful',
-        token
+        const token = jwt.sign(
+          {
+            userId: user._id.toString()
+          },
+          jwtSecret
+        );
+        if (token) {
+          return res.status(200).json({
+            message: 'Login was successful',
+            token,
+            user
+          });
+        }
+        res.status(400).json({
+          message:
+            'An error occurred while trying to create a token inside login controller function.'
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({
+          message: 'Server Error'
+        });
       });
-    });
   });
 };

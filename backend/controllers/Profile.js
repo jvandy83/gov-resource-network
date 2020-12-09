@@ -75,6 +75,7 @@ const buildSocialObject = (data) => {
 // build accomplishments object
 
 exports.addProfile = async (req, res, next) => {
+  console.log('req.body inside addProfile', req.body);
   const body = req.body;
 
   const { user_id, aboutMe } = body;

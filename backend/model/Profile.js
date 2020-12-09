@@ -5,11 +5,10 @@ const User = require('./User');
 const { Schema } = mongoose;
 
 const profileSchema = new Schema({
-  mongo_user: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  auth_0_user: String,
   intro: {
     firstName: String,
     lastName: String,
@@ -46,14 +45,14 @@ const profileSchema = new Schema({
 
 module.exports = mongoose.model('Profile', profileSchema);
 
-profileSchema.pre('save', function (next) {
-  console.log('PRE-SAVE RAN!!!');
-  this.firstName =
-    this.name.trim()[0].toUpperCase() + this.name.slice(1).toLowerCase();
-  this.name =
-    this.lastName.trim()[0].toUpperCase() + this.name.slice(1).toLowerCase();
-  next();
-});
+// profileSchema.pre('save', function (next) {
+//   console.log('PRE-SAVE RAN!!!');
+//   this.firstName =
+//     this.name.trim()[0].toUpperCase() + this.name.slice(1).toLowerCase();
+//   this.name =
+//     this.lastName.trim()[0].toUpperCase() + this.name.slice(1).toLowerCase();
+//   next();
+// });
 
 profileSchema.post('remove', { document: true, query: false }, (doc, next) => {
   console.log(doc);

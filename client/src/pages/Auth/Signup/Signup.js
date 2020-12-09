@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useForm, validate } from '../../../hooks';
 
@@ -13,6 +13,15 @@ const Signup = (props) => {
     props.signup,
     validate
   );
+
+  useEffect(() => {
+    props.redirect && props.history.push(`/login`);
+    return props.setState((prev) => ({
+      ...prev,
+      redirect: false
+    }));
+  }, [props.redirect]);
+
   return (
     <div className="signup-root">
       <h1>Signup Page</h1>

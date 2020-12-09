@@ -11,8 +11,12 @@ const Login = (props) => {
   const { values, handleChange, handleSubmit } = useForm(props.login, validate);
 
   useEffect(() => {
-    props.redirect && props.history.push(`/profile/${''}`);
-  });
+    props.redirect && props.history.push(`/profile/${props.appUser.user._id}`);
+    return props.setState((prev) => ({
+      ...prev,
+      redirect: false
+    }));
+  }, [props.redirect]);
 
   return (
     <div className="login-root">

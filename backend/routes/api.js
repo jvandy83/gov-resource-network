@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { addExperience, getExperience } = require('../controllers/Experience');
+const { addExperience, getExperience } = require('../controllers/experience');
 
 const { addEducation, getEducation } = require('../controllers/education');
 

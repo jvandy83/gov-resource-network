@@ -5,18 +5,18 @@ const User = require('./User');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  isAppUser: Boolean,
-  appUserId: String,
   firstName: String,
   lastName: String,
-  email: String,
-  email_verified: Boolean,
-  family_name: String,
-  given_name: String,
-  locale: String,
-  nickname: String,
-  picture: String,
-  sub: String,
+  avatar: String,
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
   joinDate: {
     type: Date,
     default: Date.now()

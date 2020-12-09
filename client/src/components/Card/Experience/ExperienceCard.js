@@ -10,30 +10,22 @@ import axios from 'axios';
 const ExperienceCard = (props) => {
   const [expData, setExpData] = useState({});
 
-  const [showExp, setShowExp] = useState(false);
-
-  const { user } = props;
-
-  useEffect(() => {
-    axios.get(`http://localhost:5000/api/experience/${user}`).then((res) => {
-      if (res.status !== 200) {
-        const err = new Error(
-          'An error occured while trying to fetch experience info for user profile.'
-        );
-        props.catchError(err);
-      } else {
-        setExpData((prev) => ({
-          ...prev,
-          exp: res.data
-        }));
-        setShowExp(true);
-      }
-    });
-  }, [user]);
-
-  if (!showExp) {
-    return <Loading />;
-  }
+  // useEffect(() => {
+  //   axios.get(`http://localhost:5000/api/experience/${user}`).then((res) => {
+  //     if (res.status !== 200) {
+  //       const err = new Error(
+  //         'An error occured while trying to fetch experience info for user profile.'
+  //       );
+  //       props.catchError(err);
+  //     } else {
+  //       setExpData((prev) => ({
+  //         ...prev,
+  //         exp: res.data
+  //       }));
+  //       setShowExp(true);
+  //     }
+  //   });
+  // }, [user]);
 
   const createExpProfile = () => {
     const { experience } = expData.exp.card;

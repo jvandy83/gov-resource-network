@@ -62,6 +62,14 @@ const App = () => {
     if (res.status !== 200 && res.status !== 201) {
       console.log('An error occurrd in signup.');
     }
+    setAppUser((prev) => ({
+      ...prev,
+      user: res.data.user
+    }));
+    setState((prev) => ({
+      ...prev,
+      redirect: true
+    }));
     console.log('User is signed up.');
   };
 
@@ -79,9 +87,11 @@ const App = () => {
     if (res.status !== 200 && res.status !== 201) {
       console.log('An error occurred while trying to login user.');
     }
+    console.log('Login was successful.');
     setAppUser((prev) => ({
       ...prev,
-      token: res.data.token
+      token: res.data.token,
+      user: res.data.user
     }));
     setState((prev) => ({
       ...prev,
@@ -99,17 +109,31 @@ const App = () => {
         <Route exact path="/" render={(routeProps) => <Home />} />
         <Route
           path="/signup"
-          render={(routeProps) => <Signup signup={signup} {...routeProps} />}
+          render={(routeProps) => (
+            <Signup
+              appUser={appUser}
+              redirect={state.redirect}
+              setState={setState}
+              signup={signup}
+              {...routeProps}
+            />
+          )}
         />
         <Route
           path="/login"
           render={(routeProps) => (
-            <Login login={login} redirect={state.redirect} {...routeProps} />
+            <Login
+              appUser={appUser}
+              login={login}
+              setState={setState}
+              redirect={state.redirect}
+              {...routeProps}
+            />
           )}
         />
         <Route
           path="/profile/:id"
-          render={(routeProps) => <Profile {...routeProps} />}
+          render={(routeProps) => <Profile appUser={appUser} {...routeProps} />}
         />
         <Route
           path="/network/:id"

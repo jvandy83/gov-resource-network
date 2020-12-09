@@ -8,29 +8,22 @@ import { Loading } from '../../../components';
 import axios from 'axios';
 
 const EducationCard = (props) => {
-  const { user } = props;
-
   const [eduData, setEduData] = useState({});
-  const [showEdu, setShowEdu] = useState(false);
 
-  useEffect(() => {
-    axios.get(`http://localhost:5000/api/education/${user}`).then((res) => {
-      if (res.status !== 200) {
-        const err = `An error occurred while trying to fetch education data`;
-        props.catchError(err);
-      } else {
-        setEduData((prev) => ({
-          ...prev,
-          edu: res.data
-        }));
-        setShowEdu(true);
-      }
-    });
-  }, []);
-
-  if (!showEdu) {
-    return <Loading />;
-  }
+  // useEffect(() => {
+  //   axios.get(`http://localhost:5000/api/education/${user}`).then((res) => {
+  //     if (res.status !== 200) {
+  //       const err = `An error occurred while trying to fetch education data`;
+  //       props.catchError(err);
+  //     } else {
+  //       setEduData((prev) => ({
+  //         ...prev,
+  //         edu: res.data
+  //       }));
+  //       setShowEdu(true);
+  //     }
+  //   });
+  // }, []);
 
   // const createEduProfile = () => {
   //   const edu = eduData.edu.card.education;
@@ -49,7 +42,7 @@ const EducationCard = (props) => {
   //   });
   // };
 
-  return eduData ? (
+  return (
     <div className="card-item__container">
       <div>
         <h3 className="card-item__title">{props.title}</h3>
@@ -62,7 +55,7 @@ const EducationCard = (props) => {
         />
       </div>
     </div>
-  ) : null;
+  );
 };
 
 export default EducationCard;

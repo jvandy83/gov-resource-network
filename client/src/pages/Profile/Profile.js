@@ -41,7 +41,8 @@ const EDIT_MODE = {
   editContact: false
 };
 
-const Profile = () => {
+const Profile = (props) => {
+  console.log('props inside profile: ', props);
   const [state, setState] = useState(INITIAL_STATE);
 
   const [editMode, setEditMode] = useState(EDIT_MODE);
@@ -93,7 +94,11 @@ const Profile = () => {
             <div className="header"></div>
             <div className="profile-display" id="intro-display">
               <div className="access-profile__display">
-                {/* <img className="header-pic" src={user.picture} alt="profile" /> */}
+                <img
+                  className="header-pic"
+                  src={props.appUser.user.avatar}
+                  alt="profile"
+                />
               </div>
               <div>
                 {editMode.editIntro && (
@@ -105,6 +110,7 @@ const Profile = () => {
                 )}
                 <div>
                   <IntroCard
+                    user={props.appUser.user}
                     title="Intro"
                     mode="editIntro"
                     profileData={profileData}
