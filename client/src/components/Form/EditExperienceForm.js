@@ -7,6 +7,7 @@ import Backdrop from '../Backdrop/Backdrop';
 import './Form.css';
 
 import { useForm, validate } from '../../hooks';
+
 import axios from 'axios';
 
 const ExperienceForm = (props) => {
@@ -15,7 +16,7 @@ const ExperienceForm = (props) => {
       .put(
         'http://localhost:5000/api/experience',
         {
-          data: { ...data, auth_0_user: props.user.sub }
+          data: { ...data, auth_0_user: props.user }
         },
         {
           headers: { 'Content-Type': 'application/json' }

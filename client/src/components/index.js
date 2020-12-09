@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import LoginButton from './Login/LoginButton';
+>>>>>>> 5990ad88c7878a757934c7ce1caa2b6795265714
 import MainNavigation from './Navigation/MainNavigation/MainNavigation';
 import Settings from './UserSettings/Settings';
 
@@ -16,6 +20,7 @@ import ExperienceCard from './Card/Experience/ExperienceCard';
 import AccomplishmentsCard from './Card/Accomplishments/AccomplishmentsCard';
 import AboutMeCard from './Card/About/AboutMeCard';
 import SocialNetworkCard from './Card/SocialNetwork/SocialNetworkCard';
+//
 import Loading from './Loading/Loading';
 import PrivateRouter from './private-route';
 import ErrorHandler from './ErrorHandler/ErrorHandler';

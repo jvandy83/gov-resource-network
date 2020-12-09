@@ -4,6 +4,8 @@ const { addExperience, getExperience } = require('../controllers/Experience');
 
 const { addEducation, getEducation } = require('../controllers/education');
 
+const { createNewUser, getAppUser } = require('../controllers/Auth');
+
 const {
   addAccomplishments,
   getAccomplishments

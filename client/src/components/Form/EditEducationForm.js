@@ -14,7 +14,7 @@ const EducationForm = (props) => {
   const createEducation = (values) => {
     axios
       .put('http://localhost:5000/api/education', {
-        data: { ...values, auth_0_user: props.user.sub },
+        data: { ...values, auth_0_user: props.user },
         headers: {
           'Content-Type': 'application/json'
         }

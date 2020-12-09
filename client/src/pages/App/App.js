@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from '../Home/Home';
 import Profile from '../Profile/Profile';
 import Network from '../Network/Network';
@@ -19,6 +19,9 @@ import './App.css';
 
 // react-router-dom
 import { Route, Switch } from 'react-router-dom';
+import axios from 'axios';
+
+// 3rd parties
 import axios from 'axios';
 
 const App = () => {

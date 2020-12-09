@@ -41,7 +41,7 @@ const buildAccomplishmentsObject = (data) => {
 exports.addAccomplishments = async (req, res, next) => {
   const body = req.body.data;
 
-  const { auth_0_user } = req.body.data;
+  const { user_id } = req.body.data;
 
   const {
     publications,
@@ -53,7 +53,7 @@ exports.addAccomplishments = async (req, res, next) => {
   } = body;
 
   try {
-    const doc = await Accomplishments.findOne({ auth_0_user: auth_0_user });
+    const doc = await Accomplishments.findOne({ user_id: user_id });
 
     if (doc) {
       const accomp = doc.accomplishments;
@@ -72,7 +72,7 @@ exports.addAccomplishments = async (req, res, next) => {
       });
     } else {
       const { accomplishments } = buildAccomplishmentsObject(body);
-      const mainObj = { accomplishments, auth_0_user };
+      const mainObj = { accomplishments, user_id };
       const newAccomplishments = await new Accomplishments(mainObj);
       await newAccomplishments.save();
 
@@ -92,10 +92,10 @@ exports.getAccomplishments = async (req, res, next) => {
 
   try {
     const accomplishments = await Accomplishments.findOne({
-      auth_0_user: userId
+      user_id: userId
     });
     if (!accomplishments) {
-      return res.status(404).json({
+      return res.status(200).json({
         message: 'User could not be found'
       });
     }

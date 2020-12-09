@@ -77,7 +77,7 @@ const buildSocialObject = (data) => {
 exports.addProfile = async (req, res, next) => {
   const body = req.body;
 
-  const { auth_0_user, aboutMe } = body;
+  const { user_id, aboutMe } = body;
 
   const profileFields = {};
 
@@ -92,7 +92,7 @@ exports.addProfile = async (req, res, next) => {
 
   try {
     // Check for existing Profile document
-    const doc = await Profile.findOne({ auth_0_user: auth_0_user });
+    const doc = await Profile.findOne({ user_id: user_id });
 
     if (doc) {
       doc.set(profileFields);
@@ -105,7 +105,7 @@ exports.addProfile = async (req, res, next) => {
         message: 'INTRO UPDATED!!!'
       });
     }
-    const newProfile = new Profile({ ...profileFields, auth_0_user });
+    const newProfile = new Profile({ ...profileFields, user_id });
 
     await newProfile.save();
 
@@ -124,7 +124,7 @@ exports.getProfile = async (req, res, next) => {
   const userId = req.params.id;
 
   try {
-    const profile = await Profile.findOne({ auth_0_user: userId });
+    const profile = await Profile.findOne({ user_id: userId });
 
     if (!profile) {
       return res.status(200).json({

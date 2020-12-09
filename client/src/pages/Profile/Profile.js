@@ -105,6 +105,7 @@ const Profile = () => {
                 )}
                 <div>
                   <IntroCard
+                    user={user}
                     title="Intro"
                     mode="editIntro"
                     profileData={profileData}
@@ -126,6 +127,7 @@ const Profile = () => {
               )}
               <div>
                 <AboutMeCard
+                  user={user.sub}
                   title="About Me"
                   mode="editAboutMe"
                   profileData={profileData}
@@ -140,11 +142,13 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editExp && (
                 <EditExperienceForm
+                  user={user.sub}
                   onCancelModal={cancelEditHandler}
                   mode="editExp"
                 />
               )}
               <ExperienceCard
+                user={user.sub}
                 title="Experience"
                 mode="editExp"
                 onEditHandler={onEditHandler}
@@ -157,15 +161,17 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editEdu && (
                 <EditEducationForm
+                  user={user.sub}
                   onCancelModal={cancelEditHandler}
                   mode="editEdu"
                 />
               )}
               <EducationCard
+                user={user.sub}
                 title="Education"
                 mode="editEdu"
                 onEditHandler={onEditHandler}
-                error={error}
+                catchError={catchError}
                 errorHandler={errorHandler}
               />
             </div>
@@ -180,6 +186,7 @@ const Profile = () => {
                 />
               )}
               <SocialNetworkCard
+                user={user.sub}
                 title="Social Network"
                 mode="editSocial"
                 onEditHandler={onEditHandler}
@@ -191,11 +198,13 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editAccomp && (
                 <EditAccomplishmentsForm
+                  user={user.sub}
                   onCancelModal={cancelEditHandler}
                   mode="editAccomp"
                 />
               )}
               <AccomplishmentsCard
+                user={user.sub}
                 title="Accomplishments"
                 mode="editAccomp"
                 onEditHandler={onEditHandler}

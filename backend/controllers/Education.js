@@ -24,18 +24,11 @@ exports.addEducation = async (req, res, next) => {
   console.log('inside education handler');
   const body = req.body.data;
 
-  const {
-    auth_0_user,
-    school,
-    degree,
-    fieldOfStudy,
-    schoolFrom,
-    schoolTo
-  } = body;
+  const { user_id, school, degree, fieldOfStudy, schoolFrom, schoolTo } = body;
 
   try {
     console.log('inside try block');
-    const doc = await Education.findOne({ auth_0_user: auth_0_user });
+    const doc = await Education.findOne({ user_id: user_id });
 
     if (doc) {
       const eduArray = doc.education;
@@ -57,7 +50,7 @@ exports.addEducation = async (req, res, next) => {
       const education = [];
       education.push(eduObj);
 
-      const newEducation = new Education({ education, auth_0_user });
+      const newEducation = new Education({ education, user_id });
 
       await newEducation.save();
     }
@@ -71,9 +64,10 @@ exports.getEducation = async (req, res, next) => {
   const userId = req.params.id;
 
   try {
-    const education = await Education.findOne({ auth_0_user: userId });
+    const education = await Education.findOne({ user_id: userId });
+
     if (!education) {
-      return res.status(404).json({
+      return res.status(200).json({
         message: 'User could not be found'
       });
     }

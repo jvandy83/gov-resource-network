@@ -3,7 +3,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 import axios from 'axios';
 
-export default (props) => {
+const AccomplishmentsCard = (props) => {
   return (
     <div className="card-item__container">
       <h3>{props.title}</h3>
@@ -16,3 +16,5 @@ export default (props) => {
     </div>
   );
 };
+
+export default AccomplishmentsCard;

@@ -5,30 +5,26 @@ import '../Card.css';
 
 import { Loading } from '../../../components';
 
-import { useAuth0 } from '@auth0/auth0-react';
-
 import axios from 'axios';
 
-export default (props) => {
-  const { user } = useAuth0();
+const EducationCard = (props) => {
+  const { user } = props;
 
   const [eduData, setEduData] = useState({});
   const [showEdu, setShowEdu] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/education/${user.sub}`).then((res) => {
+    axios.get(`http://localhost:5000/api/education/${user}`).then((res) => {
       if (res.status !== 200) {
         const err = `An error occurred while trying to fetch education data`;
-        props.useState((prev) => ({
+        props.catchError(err);
+      } else {
+        setEduData((prev) => ({
           ...prev,
-          error: err
+          edu: res.data
         }));
+        setShowEdu(true);
       }
-      setEduData((prev) => ({
-        ...prev,
-        edu: res.data
-      }));
-      setShowEdu(true);
     });
   }, []);
 
@@ -36,30 +32,28 @@ export default (props) => {
     return <Loading />;
   }
 
-  console.log(eduData);
+  // const createEduProfile = () => {
+  //   const edu = eduData.edu.card.education;
+  //   return edu.map((e) => {
+  //     const from = new Date(e.schoolFrom);
+  //     const to = new Date(e.schoolTo);
+  //     return (
+  //       <div key={e.school}>
+  //         <div className="card__element">{e.school}</div>
+  //         <div className="card__element">{e.degree}</div>
+  //         <div className="card__element">
+  //           {from.toLocaleDateString()} - {to.toLocaleDateString()}
+  //         </div>
+  //       </div>
+  //     );
+  //   });
+  // };
 
-  const createEduProfile = () => {
-    const edu = eduData.edu.card.education;
-    return edu.map((e) => {
-      const from = new Date(e.schoolFrom);
-      const to = new Date(e.schoolTo);
-      return (
-        <div key={e.school}>
-          <div className="card__element">{e.school}</div>
-          <div className="card__element">{e.degree}</div>
-          <div className="card__element">
-            {from.toLocaleDateString()} - {to.toLocaleDateString()}
-          </div>
-        </div>
-      );
-    });
-  };
-
-  return (
+  return eduData ? (
     <div className="card-item__container">
       <div>
         <h3 className="card-item__title">{props.title}</h3>
-        {createEduProfile()}
+        {/* {createEduProfile()} */}
       </div>
       <div>
         <EditIcon
@@ -68,5 +62,7 @@ export default (props) => {
         />
       </div>
     </div>
-  );
+  ) : null;
 };
+
+export default EducationCard;

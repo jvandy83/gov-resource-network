@@ -11,10 +11,19 @@ exports.getAuth = (req, res, next) => {
   User.findById(req.user._id)
     .select('-password')
     .then((user) => {
+      // if user is not registered
+      // then do not throw an error
+      // because it's being handled
+      // by react-router
       if (!user) {
-        return res.status(500).send('Server Error');
+        return res.status(404).json({
+          message: 'User is not registered with gov-link'
+        });
       }
-      return res.json(user);
+      return res.status(200).json({
+        message: 'Success',
+        user: user
+      });
     })
     .catch((err) => {
       console.error(err.message);
@@ -27,8 +36,11 @@ exports.signup = (req, res, next) => {
   User.findOne({ email })
     .then((user) => {
       if (user) {
-        return res.status(422).json({
-          message: 'User with that email already exists.'
+        // user already exists
+        // which is fine so
+        // don't throw error code
+        return res.status(200).json({
+          message: 'User already exists.'
         });
       }
       bcrypt

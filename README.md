@@ -1,3 +1,18 @@
+Hi Eric!
+
+You can start this app by entering the client folder and running 'npm start'. Next enter the backend folder and run 'npm run dev'.
+
+Then, once you are running the app on a local server you can log in using google or facebook. Once you are logged in you will notice all of the relevant work that I need to complete before moving on is in the 'Me' tab of the nav bar. There, you'll find a form that doesn't completely work as of the moment.
+
+The form does not update properly. I still have a couple of hours before I have this dialed in. I'd like to give people the option to create a profile as an individual or a larger business entity.
+
+The API is built using an MVC framework. I scaffolded out some models and controller files that aren't in use yet.
+
+There are definitely some bugs just entering basic profile information right now but hopefully you can start stepping through the source code and get a feel for what I'm doing.
+
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
