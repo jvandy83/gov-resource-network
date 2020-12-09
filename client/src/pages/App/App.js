@@ -21,9 +21,6 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
-// 3rd parties
-import axios from 'axios';
-
 const App = () => {
   const INITIAL_APP_STATE = {
     showBackdrop: false,

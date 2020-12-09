@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-import LoginButton from './Login/LoginButton';
->>>>>>> 5990ad88c7878a757934c7ce1caa2b6795265714
 import MainNavigation from './Navigation/MainNavigation/MainNavigation';
 import Settings from './UserSettings/Settings';
 
