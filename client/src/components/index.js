@@ -1,4 +1,3 @@
-import LoginButton from './Button/Login/LoginButton';
 import MainNavigation from './Navigation/MainNavigation/MainNavigation';
 import Settings from './UserSettings/Settings';
 
@@ -27,7 +26,6 @@ import Modal from './Modal/Modal';
 import Button from './Button/Button';
 
 export {
-  LoginButton,
   MainNavigation,
   Settings,
   EditEducationForm,

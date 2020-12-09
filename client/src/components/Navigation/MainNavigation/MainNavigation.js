@@ -1,8 +1,5 @@
 import React from 'react';
-import LoginButton from '../../Button/Login/LoginButton';
-import LogoutButton from '../../Button/Login/LogoutButton';
 import { Link } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 import './MainNavigation.css';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
@@ -10,9 +7,8 @@ import WorkIcon from '@material-ui/icons/Work';
 import SettingsIcon from '@material-ui/icons/Settings';
 
 const Nav = ({ user }) => {
-  const { isAuthenticated } = useAuth0();
   const renderAuthNav = () => {
-    return isAuthenticated ? (
+    return (
       <div className="nav">
         <ul className="nav-links">
           <li className="nav-item nav-logo">
@@ -70,23 +66,22 @@ const Nav = ({ user }) => {
               </div>
             </div>
           </li>
-          <LogoutButton />
-        </ul>
-      </div>
-    ) : (
-      <div className="nav">
-        <ul className="nav-links">
-          <li className="nav-item nav-logo">
-            <Link className="logo nav-item__link" to="/">
-              GovLink
-            </Link>
-          </li>
-          <LoginButton />
         </ul>
       </div>
     );
   };
-  return <>{renderAuthNav()}</>;
+
+  return (
+    <div className="nav">
+      <ul className="nav-links">
+        <li className="nav-item nav-logo">
+          <Link className="logo nav-item__link" to="/">
+            GovLink
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
 };
 
 export default Nav;

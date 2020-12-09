@@ -1,0 +1,21 @@
+.signup-root {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup-form {
+  width: 50%;
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid grey;
+  margin: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.3);
+}
+
+.signup-input__field {
+  display: flex;
+  flex-direction: column;
+}

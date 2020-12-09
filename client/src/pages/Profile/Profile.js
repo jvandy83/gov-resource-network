@@ -17,8 +17,6 @@ import {
   EditAccomplishmentsForm
 } from '../../components';
 
-import { useAuth0 } from '@auth0/auth0-react';
-
 // styles
 import './Profile.css';
 
@@ -44,8 +42,6 @@ const EDIT_MODE = {
 };
 
 const Profile = () => {
-  const { user } = useAuth0();
-
   const [state, setState] = useState(INITIAL_STATE);
 
   const [editMode, setEditMode] = useState(EDIT_MODE);
@@ -87,53 +83,6 @@ const Profile = () => {
   // Since createProfile is used in more than one
   // card, place function inside profile page to
   // reduce repitition
-  const createProfile = async (values) => {
-    try {
-      const res = await axios.put(`http://localhost:5000/api/profile`, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: { ...values, auth_0_user: user.sub }
-      });
-      if (res.status !== 200 && res.status !== 201) {
-        const err = new Error(
-          'There was an error that occurred while trying to create or update a profile.'
-        );
-      }
-    } catch (err) {
-      catchError(err);
-    }
-  };
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/profile/${user.sub}`)
-      .then((res) => {
-        if (res.status !== 200) {
-          const err = new Error(
-            'An error occured while trying to fetch a profile.'
-          );
-          setState((prev) => ({
-            ...prev,
-            error: err
-          }));
-        }
-        const profile = res.data;
-        setProfileData((prev) => ({
-          ...prev,
-          profile
-        }));
-        setState((prev) => ({
-          ...prev,
-          showCard: true
-        }));
-      })
-      .catch(catchError);
-  }, []);
-
-  if (!state.showCard) {
-    return <Loading />;
-  }
 
   return (
     <>
@@ -144,12 +93,12 @@ const Profile = () => {
             <div className="header"></div>
             <div className="profile-display" id="intro-display">
               <div className="access-profile__display">
-                <img className="header-pic" src={user.picture} alt="profile" />
+                {/* <img className="header-pic" src={user.picture} alt="profile" /> */}
               </div>
               <div>
                 {editMode.editIntro && (
                   <EditIntroForm
-                    createProfile={() => createProfile}
+                    // createProfile={createProfile}
                     onCancelModal={cancelEditHandler}
                     mode="editIntro"
                   />
@@ -170,7 +119,7 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editAboutMe && (
                 <EditAboutMeForm
-                  createProfile={createProfile}
+                  // createProfile={createProfile}
                   onCancelModal={cancelEditHandler}
                   mode="editAboutMe"
                 />
@@ -225,7 +174,7 @@ const Profile = () => {
             <div className="form profile-display">
               {editMode.editSocial && (
                 <EditSocialNetworkForm
-                  createProfile={createProfile}
+                  // createProfile={createProfile}
                   onCancelModal={cancelEditHandler}
                   mode="editSocial"
                 />

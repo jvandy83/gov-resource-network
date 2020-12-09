@@ -1,9 +1,9 @@
-const { jwtSecret } = require('../../client/src/config');
+const { jwtSecret } = require('../config/keys');
 const jwt = require('jsonwebtoken');
 
 module.exports = async (req, res, next) => {
   console.log('inside middleware');
-  const token = req.header('x-auth-token');
+  const token = req.header['x-auth-token'];
   if (!token) {
     return res.status(403).json({
       message: 'User is not authorized.'
@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
     if (!decoded) {
       return res.status(403).json({ message: 'User is not valid.' });
     }
-    req.user = decoded;
+    req.userId = decoded.id;
     next();
   } catch (err) {
     console.error('died inside middleware!!!');

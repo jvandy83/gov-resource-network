@@ -4,26 +4,27 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const colors = require('colors');
 var jwt = require('express-jwt');
-var jwks = require('jwks-rsa');
+// var jwks = require('jwks-rsa');
 
 const apiRoutes = require('./routes/api');
+const authRoutes = require('./routes/auth');
 
 const keys = require('./config/keys');
 
-var jwtCheck = jwt({
-  secret: jwks.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: 'https://dev-pyo61mpz.auth0.com/.well-known/jwks.json'
-  }),
-  audience: 'https://gov-resource/auth',
-  issuer: 'https://dev-pyo61mpz.auth0.com/',
-  algorithms: ['RS256']
-});
+// var jwtCheck = jwt({
+//   secret: jwks.expressJwtSecret({
+//     cache: true,
+//     rateLimit: true,
+//     jwksRequestsPerMinute: 5,
+//     jwksUri: 'https://dev-pyo61mpz.auth0.com/.well-known/jwks.json'
+//   }),
+//   audience: 'https://gov-resource/auth',
+//   issuer: 'https://dev-pyo61mpz.auth0.com/',
+//   algorithms: ['RS256']
+// });
 
 // app.use(jwtCheck);
-app.use(cors({ credentials: true }));
+// app.use(cors({ credentials: true }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -47,7 +48,8 @@ if (['production', 'ci'].includes(process.env.NODE_ENV)) {
   });
 }
 
-app.use('/api', apiRoutes);
+app.use('/v1/api', apiRoutes);
+app.use('/v1/api/auth', authRoutes);
 
 app.use((err, req, res, next) => {
   console.log(err);
