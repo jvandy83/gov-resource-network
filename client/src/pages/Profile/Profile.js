@@ -81,6 +81,32 @@ const Profile = (props) => {
     setState({ error: null });
   };
 
+  const createProfile = (values) => {
+    axios({
+      url: `http://localhost:5000/api/profile`,
+      method: 'put',
+      data: {
+        ...values
+      }
+    }).then((res) => {
+      if (res.status !== 200 && res.status !== 201) {
+        console.log('An error occurred while trying to add to profile.');
+      }
+      console.log('Successfully added to profile!!!');
+    });
+  };
+
+  // useEffect(() => {
+  //   axios({
+  //     url: `http://localhost:5000/v1/api/auth/me`,
+  //     method: 'get'
+  //   }).then((res) => {
+  //     if (!res.status !== 200) {
+  //       console.log('Could not fetch user');
+  //     }
+  //   });
+  // });
+
   // Since createProfile is used in more than one
   // card, place function inside profile page to
   // reduce repitition
@@ -96,21 +122,21 @@ const Profile = (props) => {
               <div className="access-profile__display">
                 <img
                   className="header-pic"
-                  src={props.appUser.user.avatar}
+                  src={props.user.avatar}
                   alt="profile"
                 />
               </div>
               <div>
                 {editMode.editIntro && (
                   <EditIntroForm
-                    // createProfile={createProfile}
+                    createProfile={createProfile}
                     onCancelModal={cancelEditHandler}
                     mode="editIntro"
                   />
                 )}
                 <div>
                   <IntroCard
-                    user={props.appUser.user}
+                    user={props.user}
                     title="Intro"
                     mode="editIntro"
                     profileData={profileData}
@@ -125,7 +151,7 @@ const Profile = (props) => {
             <div className="form profile-display">
               {editMode.editAboutMe && (
                 <EditAboutMeForm
-                  // createProfile={createProfile}
+                  createProfile={createProfile}
                   onCancelModal={cancelEditHandler}
                   mode="editAboutMe"
                 />
@@ -180,7 +206,7 @@ const Profile = (props) => {
             <div className="form profile-display">
               {editMode.editSocial && (
                 <EditSocialNetworkForm
-                  // createProfile={createProfile}
+                  createProfile={createProfile}
                   onCancelModal={cancelEditHandler}
                   mode="editSocial"
                 />

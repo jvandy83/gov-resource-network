@@ -79,6 +79,13 @@ const Nav = ({ user }) => {
             GovLink
           </Link>
         </li>
+        {user ? (
+          <li className="nav-item nav-logo">
+            <Link className="logo nav-item__link" to={`/profile/${user._id}`}>
+              Profile
+            </Link>
+          </li>
+        ) : null}
       </ul>
     </div>
   );

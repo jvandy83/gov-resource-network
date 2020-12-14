@@ -6,31 +6,23 @@ const colors = require('colors');
 var jwt = require('express-jwt');
 // var jwks = require('jwks-rsa');
 
+const cookieParser = require('cookie-parser');
+
 const apiRoutes = require('./routes/api');
 const authRoutes = require('./routes/auth');
 
 const keys = require('./config/keys');
 
-// var jwtCheck = jwt({
-//   secret: jwks.expressJwtSecret({
-//     cache: true,
-//     rateLimit: true,
-//     jwksRequestsPerMinute: 5,
-//     jwksUri: 'https://dev-pyo61mpz.auth0.com/.well-known/jwks.json'
-//   }),
-//   audience: 'https://gov-resource/auth',
-//   issuer: 'https://dev-pyo61mpz.auth0.com/',
-//   algorithms: ['RS256']
-// });
-
 // app.use(jwtCheck);
-// app.use(cors({ credentials: true }));
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Credentials', true);
+  // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader(
     'Access-Control-Allow-Methods',
     'GET, POST, PUT, PATCH, DELETE'
@@ -52,7 +44,7 @@ app.use('/v1/api', apiRoutes);
 app.use('/v1/api/auth', authRoutes);
 
 app.use((err, req, res, next) => {
-  console.log(err);
+  console.log('error inside Error middleware', err);
   const status = err.statusCode || 500;
   const message = err.message;
   const { data } = err;

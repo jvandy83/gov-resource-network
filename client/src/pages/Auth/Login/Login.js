@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { Redirect, Link } from 'react-router-dom';
 
 import './Login.css';
 
 import { useForm, validate } from '../../../hooks';
 
+import { useAuth } from '../../../context/auth';
+
+import axios from 'axios';
+
 const Login = (props) => {
-  console.log('props in Login', props);
-  const log = (vals) => console.log(vals);
+  console.log('props inside Login', props);
+
+  const { setAccessToken } = useAuth();
+
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   const { values, handleChange, handleSubmit } = useForm(props.login, validate);
-
-  useEffect(() => {
-    props.redirect && props.history.push(`/profile/${props.appUser.user._id}`);
-    return props.setState((prev) => ({
-      ...prev,
-      redirect: false
-    }));
-  }, [props.redirect]);
 
   return (
     <div className="login-root">
@@ -42,6 +43,10 @@ const Login = (props) => {
         </div>
       </form>
       <button onClick={handleSubmit}>Login</button>
+      <div>
+        <p>Don't have an account?</p>
+        <Link to="/signup">Sign up</Link>
+      </div>
     </div>
   );
 };

@@ -18,13 +18,14 @@ import AboutMeCard from './Card/About/AboutMeCard';
 import SocialNetworkCard from './Card/SocialNetwork/SocialNetworkCard';
 //
 import Loading from './Loading/Loading';
-import PrivateRouter from './private-route';
 import ErrorHandler from './ErrorHandler/ErrorHandler';
 import Layout from './Layout/Layout';
 import Toolbar from './Toolbar/Toolbar';
 import Backdrop from './Backdrop/Backdrop';
 import Modal from './Modal/Modal';
 import Button from './Button/Button';
+
+import PrivateRoute from './PrivateRoute';
 
 export {
   MainNavigation,
@@ -42,7 +43,7 @@ export {
   AccomplishmentsCard,
   AboutMeCard,
   SocialNetworkCard,
-  PrivateRouter,
+  PrivateRoute,
   Loading,
   Backdrop,
   Modal,

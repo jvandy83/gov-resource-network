@@ -3,15 +3,11 @@ import React from 'react';
 import Modal from '../Modal/Modal';
 import Backdrop from '../Backdrop/Backdrop';
 
-import { useAuth0 } from '@auth0/auth0-react';
-
 import './Form.css';
 
 import { useForm, validate } from '../../hooks';
 
 const IntroForm = (props) => {
-  const { user } = useAuth0();
-
   const log = (values) => {
     console.log(values);
   };
@@ -38,11 +34,16 @@ const IntroForm = (props) => {
       >
         <form>
           {/* trying to figure out hidden input w/ photo */}
-          <input
-            type="hidden"
-            name="photo"
-            value={(values.photo = user.picture)}
-          />
+          <div className="input-field">
+            <label htmlFor="photo">Photo</label>
+            <input
+              type="file"
+              name="photo"
+              id="photo"
+              onChange={handleChange}
+              value={values.photo || ''}
+            />
+          </div>
           <div className="input-field">
             <label htmlFor="firstName">First Name</label>
             <input

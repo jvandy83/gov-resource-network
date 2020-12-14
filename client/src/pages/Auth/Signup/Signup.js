@@ -1,26 +1,21 @@
 import React, { useEffect } from 'react';
 
+import { Redirect } from 'react-router-dom';
+
 import { useForm, validate } from '../../../hooks';
 
 import './Signup.css';
 
 const Signup = (props) => {
-  const log = (vals) => {
-    console.log(vals);
-  };
-
   const { handleChange, values, handleSubmit } = useForm(
     props.signup,
     validate
   );
 
   useEffect(() => {
-    props.redirect && props.history.push(`/login`);
-    return props.setState((prev) => ({
-      ...prev,
-      redirect: false
-    }));
-  }, [props.redirect]);
+    props.redirect && props.history.push('/login');
+    return () => props.setRedirect(false);
+  });
 
   return (
     <div className="signup-root">

@@ -5,10 +5,16 @@ const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 const gravatar = require('gravatar');
 
-const { jwtSecret } = require('../config/keys');
+const { accessTokenSecret, refreshTokenSecret } = require('../config/keys');
+
+const {
+  createAccessToken,
+  createRefreshToken,
+  sendRefreshToken
+} = require('../util/auth/auth');
 
 exports.getAuth = (req, res, next) => {
-  User.findById(req.user._id)
+  User.findById(req.userId)
     .select('-password')
     .then((user) => {
       // if user is not registered
@@ -16,13 +22,13 @@ exports.getAuth = (req, res, next) => {
       // because it's being handled
       // by react-router
       if (!user) {
-        return res.status(404).json({
+        return res.status(403).json({
           message: 'User is not registered with gov-link'
         });
       }
-      return res.status(200).json({
+      res.status(200).json({
         message: 'Success',
-        user: user
+        user
       });
     })
     .catch((err) => {
@@ -86,43 +92,101 @@ exports.signup = (req, res, next) => {
 exports.login = (req, res, next) => {
   const { email, password } = req.body;
 
-  User.findOne({ email }).then((user) => {
-    if (!user) {
-      res.status(422).json({
-        message: 'No user could be found with that email.'
-      });
-    }
-    bcrypt
-      .compare(password, user.password)
-      .then((isMatch) => {
-        if (!isMatch) {
-          res.status(401).json({
-            message: 'The email or password is incorrect.'
-          });
-        }
-        const token = jwt.sign(
-          {
-            userId: user._id.toString()
-          },
-          jwtSecret
-        );
-        if (token) {
+  User.findOne({ email })
+    .then((user) => {
+      if (!user) {
+        res.status(422).json({
+          message: 'No user could be found with that email.'
+        });
+      }
+      bcrypt
+        .compare(password, user.password)
+        .then((isMatch) => {
+          if (!isMatch) {
+            return res.status(401).json({
+              message: 'The email or password is incorrect.'
+            });
+          }
+
+          sendRefreshToken(res, createRefreshToken(user));
+
+          // console.log(
+          //   'RESULT OF SEND_REFRESH_TOKEN',
+          //   sendRefreshToken(res, createRefreshToken(user))
+          // );
+
+          console.log('REFRESH TOKEN SENT FROM LOGIN');
+
           return res.status(200).json({
             message: 'Login was successful',
-            token,
+            accessToken: createAccessToken(user),
             user
           });
-        }
-        res.status(400).json({
-          message:
-            'An error occurred while trying to create a token inside login controller function.'
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).send({
-          message: 'Server Error'
-        });
-      });
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
+};
+
+exports.postRefreshToken = async (req, res, next) => {
+  console.log('inside refreshToken controller function');
+
+  const token = req.cookies['jid'];
+
+  console.log('token in postRefreshToken', token);
+
+  if (!token) {
+    return res.send({ ok: false, accessToken: '' });
+  }
+
+  let payload = null;
+
+  payload = jwt.verify(token, refreshTokenSecret);
+
+  console.log('PAYLOAD', payload);
+
+  const user = await User.findById(payload.userId);
+
+  if (!user) {
+    return res.send({ ok: false, accessToken: '' });
+  }
+
+  if (user.tokenVersion !== payload.tokenVersion) {
+    return res.send({ ok: false, accessToken: '' });
+  }
+
+  sendRefreshToken(res, createRefreshToken(user));
+
+  console.log('REFRESH_TOKEN WAS SENT!!!');
+
+  return res.status(200).json({
+    ok: true,
+    accessToken: createAccessToken(user),
+    user
+  });
+
+  // token is valid and we
+  // can send back an accessToken
+};
+
+exports.revokeRefreshTokensForUser = (userId) => {
+  User.findOneAndUpdate(
+    { _id: userId },
+    {
+      $inc: {
+        tokenVersion: 1
+      }
+    },
+    { new: true }
+  ).then((updatedUser) => {
+    if (!updatedUser) {
+      res.send({ ok: false, accessToken: '' });
+    }
+    return true;
   });
 };
